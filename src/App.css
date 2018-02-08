@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  border: 4px solid grey;
+  height: 10vh;
+  width: 100vw;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.Container {
+  display: flex;
+}
+
+.Display {
+  width: 70vw;
+  height: 100vh;
+  border: 4px solid #777;
+}
+
+.Editor {
+  width: 30vw;
+  height: 100vh;
+  border: 4px solid #777;
+}
