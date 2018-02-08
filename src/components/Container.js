@@ -11,9 +11,17 @@ export default class Container extends Component {
       uiData: { chosenColor: this.data.color },
       data: { color: this.data.color }
     };
-    this.updateColor = (color, cb) => {
-      this.data.color = cb(color);
+    this.updateColor = (color) => {
+      this.updateData(color);
     };
+  }
+
+  updateData(color) {
+    this.data.color = color;
+    this.setState({
+      data : { color: color }
+    })
+    // console.log(this.data.color);
   }
 
   render() {

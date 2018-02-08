@@ -12,12 +12,13 @@ export default class Editor extends Component {
 
  makeButtons (colors) {
     return colors.map( (color, i) => {
-      return (<button key={i} onClick={this.changeColor(color)} >{color}</button>)
+      return (<button key={i} onClick={ () => { this.changeColor(color) } } >{color}</button>)
     })
   }
 
   changeColor (color) {
-    console.log("HI");
+    // console.log("hi");
+    this.props.data.cb(color);
   }
 
   render() {
