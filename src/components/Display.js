@@ -5,10 +5,10 @@ import './Display.css';
 export default class Display extends Component {
   render() {
     let position = {x: 20, y: 20};
-    let type = this.props.data.color;
+    let dotStyle = this.props.data.dotStyle;
     return (
       <div className="Display">
-        <Dot type={type} size="50" position={position} ></Dot>
+        <Dot dotStyle={dotStyle} size="50" position={position} ></Dot>
       </div>
     )
   }

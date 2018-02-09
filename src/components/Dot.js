@@ -4,10 +4,10 @@ import './Dot.css';
 export default class Dot extends Component {
 
   render() {
-    let type = this.props.type;
+    let dotStyle = this.props.dotStyle;
     let size = this.props.size;
     let position = this.props.position;
-    let classes = `Dot d-${type} d-${size}`;
+    let classes = `Dot d-${dotStyle} d-${size}`;
     return (
       <div  
       className="dot-handle" 

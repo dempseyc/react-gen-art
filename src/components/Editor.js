@@ -6,8 +6,9 @@ export default class Editor extends Component {
   constructor(props) {
     super(props);
     console.log(props);
-    this.colors = ["magenta", "cyan", "yellow"];
+    this.styleRange = this.props.data.styleRange;
     this.makeButtons = this.makeButtons.bind(this);
+    this.changeColor = this.changeColor.bind(this);
   }
 
   makeButtons (colors) {
@@ -17,14 +18,13 @@ export default class Editor extends Component {
   }
 
   changeColor (color) {
-    // console.log("hi");
-    this.props.data.cb(color);
+    this.props.data.updateDotStyle(color);
   }
 
   render() {
     return (
       <div className="Editor">
-        { this.makeButtons(this.colors) }
+        { this.makeButtons(this.styleRange) }
       </div>
     )
   }

@@ -25,3 +25,18 @@
     background: #FF0;
 }
 
+.d-magenta-blotch {
+    background: url('../images/magenta-blotch.png');
+    background-size: cover;
+}
+
+.d-cyan-blotch {
+    background: url('../images/cyan-blotch.png');
+    background-size: cover;
+}
+
+.d-yellow-blotch {
+    background: url('../images/yellow-blotch.png');
+    background-size: cover;
+}
+

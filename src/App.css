@@ -16,10 +16,18 @@
 
 .Container {
   display: flex;
+  flex-basis: 4;
+}
+
+.Display {
+  flex: 3;
+  height: 100vh;
+  border: 4px solid #777;
+  overflow: hidden;
 }
 
 .Editor {
-  width: 30vw;
+  flex: 1;
   height: 100vh;
   border: 4px solid #777;
 }
