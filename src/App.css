@@ -18,12 +18,6 @@
   display: flex;
 }
 
-.Display {
-  width: 70vw;
-  height: 100vh;
-  border: 4px solid #777;
-}
-
 .Editor {
   width: 30vw;
   height: 100vh;

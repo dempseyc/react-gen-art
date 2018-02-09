@@ -10,9 +10,9 @@ export default class Editor extends Component {
     this.makeButtons = this.makeButtons.bind(this);
   }
 
- makeButtons (colors) {
-    return colors.map( (color, i) => {
-      return (<button key={i} onClick={ () => { this.changeColor(color) } } >{color}</button>)
+  makeButtons (colors) {
+      return colors.map( (color, i) => {
+        return (<button key={i} onClick={ () => { this.changeColor(color) } } >{color}</button>)
     })
   }
 

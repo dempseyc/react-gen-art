@@ -6,10 +6,9 @@ export default class Container extends Component {
 
   constructor () {
     super();
-    this.data = { color: "blue"};
     this.state = {
-      uiData: { chosenColor: this.data.color },
-      data: { color: this.data.color }
+      uiData: { chosenColor: "blue" },
+      displayData: { color: "blue" }
     };
     this.updateColor = (color) => {
       this.updateData(color);
@@ -17,17 +16,16 @@ export default class Container extends Component {
   }
 
   updateData(color) {
-    this.data.color = color;
     this.setState({
-      data : { color: color }
+      uiData: { chosenColor: color },
+      displayData : { color: color }
     })
-    // console.log(this.data.color);
   }
 
   render() {
     return (
       <div className="Container">
-        <Display data={{ color: this.state.data.color }}/>
+        <Display data={{ color: this.state.displayData.color }}/>
         <Editor data={{ chosenColor: this.state.uiData.chosenColor, cb: this.updateColor }} />
       </div>
     )
