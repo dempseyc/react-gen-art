@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Panel.css';
+// import './Panel.css';
 
 export default class DotStyleChooser extends Component {
 

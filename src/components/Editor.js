@@ -1,31 +1,34 @@
-import React, { Component } from 'react';
-import './Editor.css';
+import React, { Component } from 'react'
+// import DotStyleChooser from './DotStyleChooser'
+import LayerButtons from './LayerButtons'
+import LayerPanel from './LayerPanel'
+import './Editor.css'
 
 export default class Editor extends Component {
 
-  constructor(props) {
-    super(props);
-    console.log(props);
-    this.styleRange = this.props.data.styleRange;
-    this.makeButtons = this.makeButtons.bind(this);
-    this.changeColor = this.changeColor.bind(this);
-  }
+    constructor(props) {
+        super(props);
+        console.log(props, "props in editor");
+        this.layers = [];
+        for (let i=1;i<=this.props.data.numLayers;i++) {
+            this.layers.push(i);
+        }
 
-  makeButtons (colors) {
-      return colors.map( (color, i) => {
-        return (<button key={i} onClick={ () => { this.changeColor(color) } } >{color}</button>)
-    })
-  }
+        this.makeLayerPanels = this.makeLayerPanels.bind(this);
+    }
 
-  changeColor (color) {
-    this.props.data.updateDotStyle(color);
-  }
+    makeLayerPanels() {
+        return this.layers.map((i) => {
+            return(<LayerPanel key= {i} layerIdx= {i} data= {this.props.data} >{i}</LayerPanel>)
+        })
+    }
 
-  render() {
-    return (
-      <div className="Editor">
-        { this.makeButtons(this.styleRange) }
-      </div>
-    )
-  }
+    render() {
+        return (
+        <div className="Editor">
+            <LayerButtons  data= {this.props.data} ></LayerButtons>
+            { this.makeLayerPanels() }
+        </div>
+        )
+    }
 }
