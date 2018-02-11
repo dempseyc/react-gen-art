@@ -5,46 +5,31 @@ export default class LayerPanel extends Component {
     constructor(props) {
         super(props);
 
-        this.state = ({
-            amActive: "am-not"
-        })
-
-        this.activeLayer = this.props.activeLayer;
+        this.state= {
+            amActive: this.props.reportActiveLayer(this.props.layerIdx)
+        }
         
-        this.myStatus = this.reportMyStatus(this.activeLayer);
         this.reportMyStatus = this.reportMyStatus.bind(this);
-        this.updateMyStatus = this.updateMyStatus.bind(this);
-
     }
 
-    componentDidMount() {
-        this.updateMyStatus();
+    componentWillReceiveProps() {
+        this.setState({
+            amActive: this.props.reportActiveLayer(this.props.layerIdx)
+        })
     }
     
-    updateMyStatus() {
-        if (this.props.layerIdx===this.activeLayer) {
-            this.setState({
-                amActive: "am"
-            })
-        } else {
-            this.setState({
-                amActive: "am-not"
-            })
-        }
-    }
 
     reportMyStatus() {
-        if (this.props.layerIdx===this.activeLayer) {
-            console.log(`my idx is ${this.props.layerIdx} and i am active`);
+        if (this.props.layerIdx===this.props.activeLayer) {
+            console.log(`my idx is ${this.props.layerIdx} and i ${this.state.amActive} active`);
         } else {
-            console.log(`my idx is ${this.props.layerIdx} and i am-not active`);
+            console.log(`my idx is ${this.props.layerIdx} and i ${this.state.amActive} active`);
         }
     }
 
     render() {
-        // let classnames = `LayerPanel-${this.props.layerIdx} active-${this.state.amActive}`;
-        let classnames = `LayerPanel-${this.props.layerIdx} active-${this.myStatus}`;
-
+        let classnames = `LayerPanel-${this.props.layerIdx} active-${this.state.amActive}`;
+        this.reportMyStatus();
         return (
             <div  
             className={ classnames }
