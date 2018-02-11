@@ -4,6 +4,8 @@ import Editor from './Editor';
 
 export default class Container extends Component {
 
+  // what we will need later is layers in the uiData and displayData
+
   constructor () {
     super();
     this.styleRange = [
@@ -14,14 +16,12 @@ export default class Container extends Component {
     this.state = {
       uiData: { 
         numDots: 20,
-        activeLayer: 1,
         chosenAlgo: "orth",
         chosenDotStyle: "blue"
       },
       displayData: { dotStyle: "blue" }
     };
     this.updateDotStyle = this.updateDotStyle.bind(this);
-    this.updateLayerActive = this.updateLayerActive.bind(this);
     this.updateAlgo = this.updateAlgo.bind(this);
     this.updateSize = this.updateSize.bind(this);
   }
@@ -47,13 +47,6 @@ export default class Container extends Component {
     })
   }
 
-  updateLayerActive(numLayer) {
-    this.setState({
-      uiData: { activeLayer: numLayer }
-    })
-    console.log("active layer", numLayer);
-  }
-
   render() {
     return (
       <div className="Container">
@@ -63,7 +56,6 @@ export default class Container extends Component {
           numLayers: this.numLayers,
           chosenDotStyle: this.state.uiData.chosenDotStyle, 
           updateDotStyle: this.updateDotStyle,
-          updateLayerActive: this.updateLayerActive
           }} />
       </div>
     )

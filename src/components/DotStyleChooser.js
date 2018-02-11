@@ -6,11 +6,9 @@ export default class DotStyleChooser extends Component {
   constructor(props) {
     super(props);
     console.log(props);
-    this.dotStyles = [
-        "magenta", "cyan", "yellow", 
-        "magenta-blotch", "cyan-blotch", "yellow-blotch"
-    ];
+
     this.makeButtons = this.makeButtons.bind(this);
+    this.changeColor = this.makeButtons.bind(this);
   }
 
   makeButtons (styles) {
@@ -25,7 +23,7 @@ export default class DotStyleChooser extends Component {
 
   render() {
     return (
-      <div className="Editor">
+      <div className="DotStyleChooser">
         { this.makeButtons(this.dotStyles) }
       </div>
     )

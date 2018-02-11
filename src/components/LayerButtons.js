@@ -5,7 +5,6 @@ export default class LayerButtons extends Component {
 
     constructor(props) {
         super(props);
-        console.log(props, "props in layer buttons");
         this.buttons = [];
         for (let i=1;i<=this.props.data.numLayers;i++) {
             this.buttons.push(i);
@@ -22,7 +21,7 @@ export default class LayerButtons extends Component {
     }
 
     activateLayer(num) {
-        this.props.data.updateLayerActive(num);
+        this.props.data.updateActiveLayer(num);
     }
 
     render() {
