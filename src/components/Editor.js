@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import DotStyleChooser from './DotStyleChooser'
 import LayerButton from './LayerButton'
 import LayerPanel from './LayerPanel'
 import './Editor.css'

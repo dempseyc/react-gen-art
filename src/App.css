@@ -26,12 +26,12 @@
   overflow: hidden;
 }
 
+.DisplayLayer {
+  position: absolute;
+}
+
 .Editor {
   flex: 1;
   height: 100vh;
   border: 4px solid #777;
-}
-
-input:focus {
-    outline: none;
 }

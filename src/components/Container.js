@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Display from './Display';
-import Editor from './Editor';
+import React, { Component } from 'react'
+import Display from './Display'
+import Editor from './Editor'
 
 export default class Container extends Component {
 
@@ -13,9 +13,7 @@ export default class Container extends Component {
     ];
     this.numLayers = 3;
     this.state = {
-      uiData: { 
-        numDots: 20,
-        chosenAlgo: "orth",
+      uiData: {
         chosenDotStyle: "magenta-blotch"
       },
       displayData: { dotStyle: "magenta-blotch" }
@@ -49,7 +47,11 @@ export default class Container extends Component {
   render() {
     return (
       <div className="Container">
-        <Display data={{ dotStyle: this.state.displayData.dotStyle }}/>
+        <Display data= {{
+          numLayers: this.numLayers,
+          dotStylye: this.state.displayData.dotStyle
+        }} >
+        </Display>
         <Editor data={{ 
           styleRange: this.styleRange,
           numLayers: this.numLayers,
