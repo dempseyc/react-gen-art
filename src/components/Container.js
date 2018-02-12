@@ -9,7 +9,6 @@ export default class Container extends Component {
   constructor () {
     super();
     this.styleRange = [
-      "magenta", "cyan", "yellow", 
       "magenta-blotch", "cyan-blotch", "yellow-blotch"
     ];
     this.numLayers = 3;
@@ -17,9 +16,9 @@ export default class Container extends Component {
       uiData: { 
         numDots: 20,
         chosenAlgo: "orth",
-        chosenDotStyle: "blue"
+        chosenDotStyle: "magenta-blotch"
       },
-      displayData: { dotStyle: "blue" }
+      displayData: { dotStyle: "magenta-blotch" }
     };
     this.updateDotStyle = this.updateDotStyle.bind(this);
     this.updateAlgo = this.updateAlgo.bind(this);

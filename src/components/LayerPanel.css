@@ -40,12 +40,25 @@ button.active-am-not {
 }
 
 .DotStyleChooser {
-    grid-column: 1/2;
+    grid-column: 1 / 2;
 }
 
 .style-button {
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
+    background-size: cover;
     background-position: center;
+}
+
+.style-button.am-chosen {
+    display: block;
+}
+
+.style-button.am-not-chosen {
+    display: none;
+}
+
+.style-button.expanded {
+    display: block;
 }
