@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import DotStyleChooser from './DotStyleChooser'
+import './LayerPanel.css'
 
 export default class LayerPanel extends Component {
 
@@ -28,13 +30,16 @@ export default class LayerPanel extends Component {
     }
 
     render() {
-        let classnames = `LayerPanel-${this.props.layerIdx} active-${this.state.amActive}`;
-        this.reportMyStatus();
+        let classnames = `LayerPanel l-${this.props.layerIdx} active-${this.state.amActive}`;
+        // this.reportMyStatus();
         return (
             <div  
             className={ classnames }
             >
-                <p>I am layer Panel {this.props.layerIdx}</p>
+                <DotStyleChooser
+                    data= {this.props.data}
+                    styleRange= {this.props.data.styleRange}
+                ></DotStyleChooser>
             </div>
         )
     }

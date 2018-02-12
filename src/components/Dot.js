@@ -7,12 +7,16 @@ export default class Dot extends Component {
     let dotStyle = this.props.dotStyle;
     let size = this.props.size;
     let position = this.props.position;
-    let classes = `Dot d-${dotStyle} d-${size}`;
+    let classes = `Dot d-${size}`;
+    let CSSstyle = {
+      backgroundImage: `url(images/${dotStyle}.png)`,
+      }
     return (
       <div  
       className="dot-handle" 
-      style={{ left: position.x-size/2, top: position.y-size/2 }}>
-        <div className ={classes}></div>
+      style={{left: position.x-size/2, 
+        top: position.y-size/2 }}>
+        <div className ={classes} style={CSSstyle}></div>
       </div>
     )
   }

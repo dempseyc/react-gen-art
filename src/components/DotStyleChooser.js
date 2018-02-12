@@ -1,24 +1,39 @@
 import React, { Component } from 'react';
-// import './Panel.css';
+import './LayerPanel.css';
 
 export default class DotStyleChooser extends Component {
 
   constructor(props) {
     super(props);
     console.log(props);
-
+    this.dotStyles = this.props.styleRange;
     this.makeButtons = this.makeButtons.bind(this);
-    this.changeColor = this.makeButtons.bind(this);
+    this.changeDotStyle = this.changeDotStyle.bind(this);
+  }
+  
+  componentDidMount() {
+    this.expand();
   }
 
-  makeButtons (styles) {
-      return styles.map( (style, i) => {
-        return (<button key={i} onClick={ () => { this.changeColor(style) } } >{style}</button>)
+  makeButtons (dotStyles) {
+    return dotStyles.map( (dotStyle, i) => {
+      let classnames = `style-button`;
+      let CSSstyle = {backgroundImage: `url(images/${dotStyle}.png)`}
+        return (<button 
+          key={i} 
+          style={CSSstyle} 
+          className={classnames} 
+          onClick={ () => { this.changeDotStyle(dotStyle) } } 
+        >{dotStyle}</button>)
     })
   }
 
-  changeColor (style) {
-    this.props.data.updateColor(style);
+  changeDotStyle(style) {
+    this.props.data.updateDotStyle(style);
+  }
+
+  expand() {
+    console.log(this.props.children);
   }
 
   render() {

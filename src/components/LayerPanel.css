@@ -1,0 +1,51 @@
+.LayerButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: start;
+    font-size: 1.5em;
+    text-align: center;
+    background-color: #000;
+}
+
+button.active-am {
+    background-color: #AAA;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #AAA;
+}
+
+button.active-am-not {
+    background-color: #AAA;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+   /* for panels */
+.active-am:not(button) {
+    display: grid;
+}
+
+.active-am-not:not(button) {
+    display: none;
+}
+
+.LayerPanel {
+    background-color: #AAA;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    padding-top: 10px;
+}
+
+.DotStyleChooser {
+    grid-column: 1/2;
+}
+
+.style-button {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-position: center;
+}

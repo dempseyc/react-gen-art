@@ -37,7 +37,6 @@ export default class Editor extends Component {
                     key={i} 
                     layerIdx= {i} 
                     handleClick= { () => {
-                        console.log("click called");
                         this.updateActiveLayer(i);
                      } }
                     activeLayer= {this.state.activeLayer}
