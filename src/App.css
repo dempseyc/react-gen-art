@@ -28,6 +28,8 @@
 
 .DisplayLayer {
   position: absolute;
+  mix-blend-mode: multiply;
+
 }
 
 .Editor {
