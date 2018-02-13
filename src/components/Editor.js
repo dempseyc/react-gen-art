@@ -30,13 +30,13 @@ export default class Editor extends Component {
 
     makeButtons() {
 
-        return this.layers.map((i) => {
+        return this.layers.map((num) => {
             return(
                 <LayerButton 
-                    key={i} 
-                    layerIdx= {i} 
+                    key={num} 
+                    layerNum= {num} 
                     handleClick= { () => {
-                        this.updateActiveLayer(i);
+                        this.updateActiveLayer(num);
                      } }
                     activeLayer= {this.state.activeLayer}
                     reportActiveLayer= {this.reportActiveLayer.bind(this)}
@@ -47,11 +47,11 @@ export default class Editor extends Component {
     }
 
     makeLayerPanels() {
-        return this.layers.map((i) => {
+        return this.layers.map((num) => {
             return(
                <LayerPanel 
-                    key= {i} 
-                    layerIdx= {i} 
+                    key= {num} 
+                    layerNum= {num} 
                     data= {this.props.data} 
                     activeLayer= {this.state.activeLayer}
                     reportActiveLayer= {this.reportActiveLayer.bind(this)}

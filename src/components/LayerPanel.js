@@ -8,7 +8,7 @@ export default class LayerPanel extends Component {
         super(props);
 
         this.state= {
-            amActive: this.props.reportActiveLayer(this.props.layerIdx)
+            amActive: this.props.reportActiveLayer(this.props.layerNum)
         }
         
         this.reportMyStatus = this.reportMyStatus.bind(this);
@@ -16,27 +16,28 @@ export default class LayerPanel extends Component {
 
     componentWillReceiveProps() {
         this.setState({
-            amActive: this.props.reportActiveLayer(this.props.layerIdx)
+            amActive: this.props.reportActiveLayer(this.props.layerNum)
         })
     }
     
 
     reportMyStatus() {
-        if (this.props.layerIdx===this.props.activeLayer) {
-            console.log(`my idx is ${this.props.layerIdx} and i ${this.state.amActive} active`);
+        if (this.props.layerNum===this.props.activeLayer) {
+            console.log(`my idx is ${this.props.layerNum} and i ${this.state.amActive} active`);
         } else {
-            console.log(`my idx is ${this.props.layerIdx} and i ${this.state.amActive} active`);
+            console.log(`my idx is ${this.props.layerNum} and i ${this.state.amActive} active`);
         }
     }
 
     render() {
-        let classnames = `LayerPanel l-${this.props.layerIdx} active-${this.state.amActive}`;
+        let classnames = `LayerPanel l-${this.props.layerNum} active-${this.state.amActive}`;
         // this.reportMyStatus();
         return (
             <div  
             className={ classnames }
             >
                 <DotStyleChooser
+                    layerNum = {this.props.layerNum}
                     data= {this.props.data}
                     styleRange= {this.props.data.styleRange}
                 ></DotStyleChooser>

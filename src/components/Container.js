@@ -12,50 +12,69 @@ export default class Container extends Component {
       "magenta-blotch", "cyan-blotch", "yellow-blotch"
     ];
     this.numLayers = 3;
+    let layerArr = [];
+    // push layer template instead
+    for (let i=1; i<=this.numLayers; i++) {
+      layerArr.push({dotStyle: "magenta-blotch"});
+    }
     this.state = {
       uiData: {
-        chosenDotStyle: "magenta-blotch"
+        layers: layerArr
       },
-      displayData: { dotStyle: "magenta-blotch" }
+      displayData: { 
+        layerArray: Array(this.numLayers) }
     };
     this.updateDotStyle = this.updateDotStyle.bind(this);
     this.updateAlgo = this.updateAlgo.bind(this);
     this.updateSize = this.updateSize.bind(this);
   }
 
-  updateDotStyle(dotStyle) {
+  updateDotStyle(dotStyle,layer) {
+    let newArr = this.state.uiData.layers.map((d,i)=>{
+      if (i+1 !== layer) {
+        return d;
+      } else {
+        let dU = { dotStyle: dotStyle }
+        return dU;
+      }
+    });
     this.setState({
-      uiData: { chosenStyle: dotStyle },
-      displayData: { dotStyle: dotStyle }
-    })
+      uiData: { layers: newArr }
+    }, this.updateDisplay)
   }
+
+  updateDisplay() {
+    return this.state.uiData.layers;
+  }
+  // reportUpdate() {
+  //   console.log(this.state, "state in c")
+  // }
 
   updateAlgo(algo) {
     this.setState({
-      uiData: { chosenAlgo: algo },
-      displayData: { algo: algo }
+      uiData: { algo: algo }
     })
   }
 
   updateSize(size) {
     this.setState({
-      uiData: { chosenSize: size },
-      displayData: { size: size }
+      uiData: { size: size },
     })
   }
 
   render() {
     return (
       <div className="Container">
-        <Display data= {{
-          numLayers: this.numLayers,
-          dotStyle: this.state.displayData.dotStyle
-        }} >
+        <Display 
+          numLayers= {this.numLayers}
+          // layers= {this.state.uiData.layers}
+          layers= {this.updateDisplay()}
+         >
         </Display>
         <Editor data={{ 
           styleRange: this.styleRange,
           numLayers: this.numLayers,
-          chosenDotStyle: this.state.uiData.chosenDotStyle, 
+          layers: this.state.uiData.layers,
           updateDotStyle: this.updateDotStyle,
           }} />
       </div>

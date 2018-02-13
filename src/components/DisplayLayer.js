@@ -5,15 +5,23 @@ export default class DisplayLayer extends Component {
 
   constructor(props) {
     super(props);
-    console.log(props);
+    this.layerNum = this.props.layerNum;
+    this.state = {
+      dotStyle: this.props.layers[this.layerNum-1].dotStyle
+    };
+  }
+
+  componentWillReceiveProps() {
+    this.setState({
+      dotStyle: this.props.layers[this.layerNum-1].dotStyle
+    })
   }
 
   render() {
     let position = {x: 20, y: 20};
-    let dotStyle = this.props.dotStyle;
     return (
       <div className="DisplayLayer">
-        <Dot data= {this.props.data } dotStyle={dotStyle} size="50" position={position} ></Dot>
+        <Dot dotStyle={this.state.dotStyle} size="50" position={position} ></Dot>
       </div>
     )
   }

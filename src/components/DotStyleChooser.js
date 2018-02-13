@@ -5,10 +5,11 @@ export default class DotStyleChooser extends Component {
 
   constructor(props) {
     super(props);
-    // console.log(props);
+    this.layer = this.props.layerNum;
+    console.log(this.props.data.layers[this.layer-1], "dotstyle in dsc");
     this.state = {
       expanded: false,
-      chosenDotStyle: this.props.data.chosenDotStyle
+      dotStyle: this.props.data.layers[this.layer-1].dotStyle
     }
     this.dotStyles = this.props.styleRange;
     this.makeButtons = this.makeButtons.bind(this);
@@ -16,34 +17,39 @@ export default class DotStyleChooser extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  getChosenStatus(dotStyle) {
-  }
-
   makeButtons (dotStyles) {
     let choiceStatus = "expanded";
     return dotStyles.map( (dotStyle, i) => {
       if (this.state.expanded===true) {
         choiceStatus = "expanded";
-      } else if (this.state.chosenDotStyle===dotStyle) {
+      } else if (this.state.dotStyle===dotStyle) {
         choiceStatus = "am-chosen";
       } else {
         choiceStatus = "am-not-chosen";
       }
       let classnames = `style-button ${choiceStatus}`;
-      let CSSstyle = {backgroundImage: `url(images/${dotStyle}.png)`}
-        return (<button 
-          key={i} 
-          style={CSSstyle} 
-          className={classnames}
-          onClick={ () => { this.changeDotStyle(dotStyle) } } 
-        >{dotStyle}</button>)
+      let CSSstyle = {backgroundImage: `url(images/${dotStyle}.png)`};
+
+      return (<button 
+        key={i} 
+        style={CSSstyle} 
+        className={classnames}
+        onClick={ () => { 
+          if(choiceStatus !== "expanded") {
+            return;
+          } else {
+            this.changeDotStyle(dotStyle,this.layer);
+          }
+        }}
+      >{dotStyle}</button>)
     })
   }
 
-  changeDotStyle(style) {
-    this.props.data.updateDotStyle(style);
+  changeDotStyle(style,layer) {
+    // from update props.data up to container
+    this.props.data.updateDotStyle(style,layer);
     this.setState({
-      chosenDotStyle: style
+      dotStyle: style
     })
   }
 
