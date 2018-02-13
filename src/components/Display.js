@@ -13,6 +13,7 @@ constructor(props) {
 	}
 
 	this.makeDisplayLayers.bind(this);
+	console.log(this.props.data);
 
 }
 

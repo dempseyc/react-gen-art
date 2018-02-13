@@ -10,10 +10,10 @@ export default class DisplayLayer extends Component {
 
   render() {
     let position = {x: 20, y: 20};
-    let dotStyle = this.props.data.dotStyle;
+    let dotStyle = this.props.dotStyle;
     return (
       <div className="DisplayLayer">
-        <Dot dotStyle={dotStyle} size="50" position={position} ></Dot>
+        <Dot data= {this.props.data } dotStyle={dotStyle} size="50" position={position} ></Dot>
       </div>
     )
   }

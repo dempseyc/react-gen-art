@@ -49,7 +49,7 @@ export default class Container extends Component {
       <div className="Container">
         <Display data= {{
           numLayers: this.numLayers,
-          dotStylye: this.state.displayData.dotStyle
+          dotStyle: this.state.displayData.dotStyle
         }} >
         </Display>
         <Editor data={{ 
