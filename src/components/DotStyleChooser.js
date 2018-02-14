@@ -6,7 +6,6 @@ export default class DotStyleChooser extends Component {
   constructor(props) {
     super(props);
     this.layer = this.props.layerNum;
-    console.log(this.props.data.layers[this.layer-1], "dotstyle in dsc");
     this.state = {
       expanded: false,
       dotStyle: this.props.data.layers[this.layer-1].dotStyle

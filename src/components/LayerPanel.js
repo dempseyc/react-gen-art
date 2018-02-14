@@ -11,7 +11,7 @@ export default class LayerPanel extends Component {
             amActive: this.props.reportActiveLayer(this.props.layerNum)
         }
         
-        this.reportMyStatus = this.reportMyStatus.bind(this);
+        // this.reportMyStatus = this.reportMyStatus.bind(this);
     }
 
     componentWillReceiveProps() {
@@ -20,14 +20,13 @@ export default class LayerPanel extends Component {
         })
     }
     
-
-    reportMyStatus() {
-        if (this.props.layerNum===this.props.activeLayer) {
-            console.log(`my idx is ${this.props.layerNum} and i ${this.state.amActive} active`);
-        } else {
-            console.log(`my idx is ${this.props.layerNum} and i ${this.state.amActive} active`);
-        }
-    }
+    // reportMyStatus() {
+    //     if (this.props.layerNum===this.props.activeLayer) {
+    //         console.log(`my idx is ${this.props.layerNum} and i ${this.state.amActive} active`);
+    //     } else {
+    //         console.log(`my idx is ${this.props.layerNum} and i ${this.state.amActive} active`);
+    //     }
+    // }
 
     render() {
         let classnames = `LayerPanel l-${this.props.layerNum} active-${this.state.amActive}`;

@@ -16,7 +16,7 @@ export default class LayerButtons extends Component {
 
     makeButtons() {
         return this.buttons.map((i) => {
-            return(<button key={i} onClick={ () => { this.activateLayer(i) } } >{i}</button>)
+            return(<button key={i-1} onClick={ () => { this.activateLayer(i) } } >{i}</button>)
         })
     }
 

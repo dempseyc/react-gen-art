@@ -33,7 +33,7 @@ export default class Editor extends Component {
         return this.layers.map((num) => {
             return(
                 <LayerButton 
-                    key={num} 
+                    key={num-1} 
                     layerNum= {num} 
                     handleClick= { () => {
                         this.updateActiveLayer(num);
@@ -50,9 +50,9 @@ export default class Editor extends Component {
         return this.layers.map((num) => {
             return(
                <LayerPanel 
-                    key= {num} 
+                    key= {num-1} 
                     layerNum= {num} 
-                    data= {this.props.data} 
+                    data= {this.props.data}
                     activeLayer= {this.state.activeLayer}
                     reportActiveLayer= {this.reportActiveLayer.bind(this)}
                 >
