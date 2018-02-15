@@ -46,10 +46,9 @@ export default class DotStyleChooser extends Component {
 
   changeDotStyle(style,layer) {
     // from update props.data up to container
-    this.props.data.updateDotStyle(style,layer);
     this.setState({
       dotStyle: style
-    })
+    }, this.props.data.updateDotStyle(style,layer) )
   }
 
   handleClick() {

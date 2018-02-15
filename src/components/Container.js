@@ -17,6 +17,7 @@ export default class Container extends Component {
     for (let i=1; i<=this.numLayers; i++) {
       layerArr.push({dotStyle: "yellow-blotch"});
     }
+
     this.state = {
       uiData: {
         layers: layerArr
@@ -25,13 +26,17 @@ export default class Container extends Component {
         layerArray: Array(this.numLayers) }
     };
 
+    this.updateDisplay = this.updateDisplay.bind(this);
+
+    this.displayUpdate = this.state.uiData.layers;
+    console.log(this.displayUpdate, "d u");
+
     this.updateDotStyle = this.updateDotStyle.bind(this);
     // this.updateAlgo = this.updateAlgo.bind(this);
     // this.updateSize = this.updateSize.bind(this);
   }
 
   updateDotStyle(dotStyle,layer) {
-    console.log("uds");
     let newArr = this.state.uiData.layers.map((d,i)=>{
       if (i+1 !== layer) {
         return d;
@@ -42,7 +47,12 @@ export default class Container extends Component {
     });
     this.setState({
       uiData: { layers: newArr }
-    })
+    }, () => { this.updateDisplay(newArr) })
+  }
+
+  updateDisplay(layers) {
+    this.displayUpdate = layers;
+    this.forceUpdate();
   }
 
   // updateAlgo(algo) {
@@ -58,12 +68,12 @@ export default class Container extends Component {
   // }
 
   render() {
+    console.log(this.displayUpdate, "in c");
     return (
       <div className="Container">
-        <Display data={{
-          numLayers: this.numLayers,
-          layers: this.state.uiData.layers
-        }}
+        <Display
+            numLayers= {this.numLayers}
+            layers= {this.displayUpdate}
          >
         </Display>
         <Editor data={{ 
