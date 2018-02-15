@@ -20,7 +20,7 @@ export default class Container extends Component {
     for (let i=1; i<=this.numLayers; i++) {
       layerArr.push({
         dotStyle: "yellow-blotch",
-        dotSize: 200
+        dotSize: 210
       });
     }
 
@@ -39,7 +39,7 @@ export default class Container extends Component {
 
     this.updateDotStyle = this.updateDotStyle.bind(this);
     // this.updateAlgo = this.updateAlgo.bind(this);
-    // this.updateSize = this.updateSize.bind(this);
+    this.updateDotSize = this.updateDotSize.bind(this);
   }
 
   updateDotStyle(dotStyle,layer) {
@@ -58,12 +58,7 @@ export default class Container extends Component {
       uiData: { layers: newArr }
     }, () => { this.updateDisplay(newArr) })
   }
-
-  updateDisplay(layers) {
-    this.displayUpdate = layers;
-    this.forceUpdate();
-  }
-
+  
   updateDotSize(dotSize,layer) {
     let newArr = this.state.uiData.layers.map((d,i)=>{
       if (i+1 !== layer) {
@@ -80,6 +75,11 @@ export default class Container extends Component {
       uiData: { layers: newArr }
     }, () => { this.updateDisplay(newArr) })
   }
+  
+    updateDisplay(layers) {
+      this.displayUpdate = layers;
+      this.forceUpdate();
+    }
 
   render() {
     console.log(this.displayUpdate, "in c");

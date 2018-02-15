@@ -13,12 +13,17 @@
   height: 50px;
 }
 
-.d-100 {
-  width: 100px;
-  height: 100px;
+.d-80 {
+  width: 80px;
+  height: 80px;
 }
 
-.d-200 {
-  width: 200px;
-  height: 200px;
+.d-130 {
+  width: 130px;
+  height: 130px;
+}
+
+.d-210 {
+  width: 210px;
+  height: 210px;
 }
