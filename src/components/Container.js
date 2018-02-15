@@ -12,7 +12,7 @@ export default class Container extends Component {
       "magenta-blotch", "cyan-blotch", "yellow-blotch"
     ];
     this.sizeRange = [
-      ""
+      50, 130, 340, 890
     ]
     this.numLayers = 3;
     let layerArr = [];
@@ -20,7 +20,7 @@ export default class Container extends Component {
     for (let i=1; i<=this.numLayers; i++) {
       layerArr.push({
         dotStyle: "yellow-blotch",
-        dotSize: 210
+        dotSize: 130
       });
     }
 

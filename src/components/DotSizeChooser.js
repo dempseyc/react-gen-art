@@ -21,7 +21,6 @@ export default class DotSizeChooser extends Component {
   }
 
   handleSubmit(event) {
-    // alert('Your favorite flavor is: ' + this.state.value);
     event.preventDefault();
     this.props.data.updateDotSize(this.state.value,this.layer);
   }
@@ -33,9 +32,9 @@ export default class DotSizeChooser extends Component {
       <form>
         <select value={this.state.value} onChange={this.handleChange} >
           <option value='50'>50px</option>
-          <option value='80'>80px</option>
-          <option default value='130'>130px</option>
-          <option value='210'>210px</option>
+          <option value='130'>130px</option>
+          <option default value='340'>340px</option>
+          <option value='890'>890px</option>
         </select>
         {/* <input type="submit" value="Submit" /> */}
       </form>

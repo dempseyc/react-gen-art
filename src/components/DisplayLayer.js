@@ -4,7 +4,7 @@ import Dot from './Dot'
 export default class DisplayLayer extends Component {
 
   render() {
-    let position = {x: 20, y: 20};
+    let position = {x: 200, y: 200};
     return (
       <div className="DisplayLayer">
         <Dot 
