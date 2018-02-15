@@ -8,8 +8,9 @@ export default class DisplayLayer extends Component {
     return (
       <div className="DisplayLayer">
         <Dot 
-        dotStyle={this.props.layers[this.props.layerNum-1].dotStyle} 
-        size="50" position={position} 
+          dotStyle={this.props.layers[this.props.layerNum-1].dotStyle} 
+          dotSize={this.props.layers[this.props.layerNum-1].dotSize} 
+          position={position}
         ></Dot>
       </div>
     )

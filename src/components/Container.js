@@ -11,11 +11,17 @@ export default class Container extends Component {
     this.styleRange = [
       "magenta-blotch", "cyan-blotch", "yellow-blotch"
     ];
+    this.sizeRange = [
+      ""
+    ]
     this.numLayers = 3;
     let layerArr = [];
     // push layer template instead
     for (let i=1; i<=this.numLayers; i++) {
-      layerArr.push({dotStyle: "yellow-blotch"});
+      layerArr.push({
+        dotStyle: "yellow-blotch",
+        dotSize: 200
+      });
     }
 
     this.state = {
@@ -41,7 +47,10 @@ export default class Container extends Component {
       if (i+1 !== layer) {
         return d;
       } else {
-        let dU = { dotStyle: dotStyle }
+        let dU = { 
+          dotStyle: dotStyle,
+          dotSize: this.state.uiData.layers[i].dotSize 
+        }
         return dU;
       }
     });
@@ -55,17 +64,22 @@ export default class Container extends Component {
     this.forceUpdate();
   }
 
-  // updateAlgo(algo) {
-  //   this.setState({
-  //     uiData: { algo: algo }
-  //   })
-  // }
-
-  // updateSize(size) {
-  //   this.setState({
-  //     uiData: { size: size },
-  //   })
-  // }
+  updateDotSize(dotSize,layer) {
+    let newArr = this.state.uiData.layers.map((d,i)=>{
+      if (i+1 !== layer) {
+        return d;
+      } else {
+        let dU = { 
+          dotSize: dotSize,
+          dotStyle: this.state.uiData.layers[i].dotStyle
+        }
+        return dU;
+      }
+    });
+    this.setState({
+      uiData: { layers: newArr }
+    }, () => { this.updateDisplay(newArr) })
+  }
 
   render() {
     console.log(this.displayUpdate, "in c");
@@ -79,8 +93,9 @@ export default class Container extends Component {
         <Editor data={{ 
           styleRange: this.styleRange,
           numLayers: this.numLayers,
-          layers: this.state.uiData.layers,
+          layers: this.displayUpdate,
           updateDotStyle: this.updateDotStyle,
+          updateDotSize: this.updateDotSize
           }} />
       </div>
     )
