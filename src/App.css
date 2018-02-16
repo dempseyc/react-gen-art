@@ -27,7 +27,8 @@
 }
 
 .DisplayLayer {
-  position: absolute;
+  position: relative;
+  width: 100%;
   mix-blend-mode: multiply;
 
 }

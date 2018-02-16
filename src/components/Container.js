@@ -14,7 +14,7 @@ export default class Container extends Component {
     this.sizeRange = [
       50, 130, 340, 890
     ]
-    this.numLayers = 3;
+    this.numLayers = 2;
     let layerArr = [];
     // push layer template instead
     for (let i=1; i<=this.numLayers; i++) {
@@ -76,10 +76,11 @@ export default class Container extends Component {
     }, () => { this.updateDisplay(newArr) })
   }
   
-    updateDisplay(layers) {
-      this.displayUpdate = layers;
-      this.forceUpdate();
-    }
+  // this forceUpdate does what is needed from container
+  updateDisplay(layers) {
+    this.displayUpdate = layers;
+    this.forceUpdate();
+  }
 
   render() {
     console.log(this.displayUpdate, "in c");
