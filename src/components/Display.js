@@ -5,26 +5,25 @@ export default class Display extends Component {
 
 constructor(props) {
 	super(props);
+	this.displayLayers = [];
 
-	this.layers = [];
-
-	for (let i=1;i<=this.props.data.numLayers;i++) {
-		this.layers.push(i);
+	for (let num=1; num<=this.props.numLayers; num++) {
+		this.displayLayers.push(num);
 	}
-
 	this.makeDisplayLayers.bind(this);
-	console.log(this.props.data);
-
+	
+	console.log(this.props.dotPosData, "dotposdata in d");
 }
 
 makeDisplayLayers() {
-	return this.layers.map( (i) => {
+	return this.displayLayers.map( (num) => {
 		return (
 		<DisplayLayer 
-			key={i} 
-			layerNumber = {i}
-			data= { this.props.data }
-			dotStyle= {this.props.data.dotStyle}
+			key={num-1} 
+			data= {this.props.dotPosData[num-1]}
+			layerNum={num}
+			layers={this.props.layers}
+			numlayers={this.props.numLayers}
 			>
 		</DisplayLayer>
 		)

@@ -6,22 +6,22 @@ export default class LayerButton extends Component {
         super(props);
 
         this.state= {
-            amActive: this.props.reportActiveLayer(this.props.layerIdx)
+            amActive: this.props.reportActiveLayer(this.props.layerNum)
         }
         
     }
 
     componentWillReceiveProps() {
         this.setState({
-            amActive: this.props.reportActiveLayer(this.props.layerIdx)
+            amActive: this.props.reportActiveLayer(this.props.layerNum)
         })
     }
 
     render() {
-        let classnames = `LayerButton-${this.props.layerIdx} active-${this.state.amActive}`;
+        let classnames = `LayerButton-${this.props.layerNum} active-${this.state.amActive}`;
         return (
             <button className={classnames} onClick={this.props.handleClick}>
-                <p>{this.props.layerIdx}</p>
+                <p>{this.props.layerNum}</p>
             </button>
         )
     }

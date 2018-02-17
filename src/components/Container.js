@@ -1,62 +1,122 @@
 import React, { Component } from 'react'
+import DotTracker from './DotTracker'
 import Display from './Display'
 import Editor from './Editor'
+import Dot from './Dot';
 
 export default class Container extends Component {
-
-  // what we will need later is layers in the uiData and displayData
 
   constructor () {
     super();
     this.styleRange = [
-      "magenta-blotch", "cyan-blotch", "yellow-blotch"
+      "magenta-blotch", 
+      "cyan-blotch", 
+      "yellow-blotch", 
+      "black-blotch", 
+      "white-blotch"
     ];
-    this.numLayers = 3;
+    this.sizeRange = [
+      50, 130, 340, 890
+    ]
+    this.numLayers = 5;
+
+    this.layerData = [
+      {idx: 0,numDots: 5, algo: "ortho"},
+      {idx: 1,numDots: 5, algo: "ortho"}
+    ];
+
+    this.dotTracker = new DotTracker(this.numLayers, this.layerData);
+
+    let layerArr = [];
+
+    for (let i=1; i<=this.numLayers; i++) {
+      layerArr.push({
+        dotStyle: "yellow-blotch",
+        dotSize: 130
+      });
+
+    }
+
+    this.dotPosData = this.dotTracker.reportDotPosData();
+
     this.state = {
       uiData: {
-        chosenDotStyle: "magenta-blotch"
+        layers: layerArr
       },
-      displayData: { dotStyle: "magenta-blotch" }
+      displayData: { 
+        layerArray: this.dotPosData
+      },
     };
+
+    this.displayUpdate = this.state.uiData.layers;
+
+    this.updateDisplay = this.updateDisplay.bind(this);
+
     this.updateDotStyle = this.updateDotStyle.bind(this);
-    this.updateAlgo = this.updateAlgo.bind(this);
-    this.updateSize = this.updateSize.bind(this);
+    // this.updateAlgo = this.updateAlgo.bind(this);
+    this.updateDotSize = this.updateDotSize.bind(this);
   }
 
-  updateDotStyle(dotStyle) {
+  updateDotStyle(dotStyle,layer) {
+    let newArr = this.state.uiData.layers.map((d,i)=>{
+      if (i+1 !== layer) {
+        return d;
+      } else {
+        let dU = { 
+          dotStyle: dotStyle,
+          dotSize: this.state.uiData.layers[i].dotSize 
+        }
+        return dU;
+      }
+    });
     this.setState({
-      uiData: { chosenStyle: dotStyle },
-      displayData: { dotStyle: dotStyle }
-    })
+      uiData: { layers: newArr }
+    }, () => { this.updateDisplay(newArr) })
+  }
+  
+  updateDotSize(dotSize,layer) {
+    let newArr = this.state.uiData.layers.map((d,i)=>{
+      if (i+1 !== layer) {
+        return d;
+      } else {
+        let dU = { 
+          dotSize: dotSize,
+          dotStyle: this.state.uiData.layers[i].dotStyle
+        }
+        return dU;
+      }
+    });
+    this.setState({
+      uiData: { layers: newArr }
+    }, () => { this.updateDisplay(newArr) })
+  }
+  
+  // this forceUpdate does what is needed from container
+  updateDisplay(layers) {
+    this.displayUpdate = layers;
+    this.forceUpdate();
   }
 
-  updateAlgo(algo) {
-    this.setState({
-      uiData: { chosenAlgo: algo },
-      displayData: { algo: algo }
-    })
-  }
-
-  updateSize(size) {
-    this.setState({
-      uiData: { chosenSize: size },
-      displayData: { size: size }
-    })
-  }
+  // componentWillMount() {
+  //   this.dotPosData = this.dotTracker.reportDotPosData();
+  // }
 
   render() {
+    // console.log(this.displayUpdate, "in c");
     return (
       <div className="Container">
-        <Display data= {{
-          numLayers: this.numLayers,
-          dotStyle: this.state.displayData.dotStyle
-        }} >
+        <Display
+            numLayers= {this.numLayers}
+            dotPosData= {this.dotPosData}
+            layers= {this.displayUpdate}
+         >
         </Display>
         <Editor data={{ 
           styleRange: this.styleRange,
           numLayers: this.numLayers,
-          chosenDotStyle: this.state.uiData.chosenDotStyle, 
+          layers: this.displayUpdate,
           updateDotStyle: this.updateDotStyle,
+          updateDotSize: this.updateDotSize
           }} />
       </div>
     )

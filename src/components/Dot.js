@@ -5,18 +5,23 @@ export default class Dot extends Component {
 
   render() {
     let dotStyle = this.props.dotStyle;
-    let size = this.props.size;
-    let position = this.props.position;
-    let classes = `Dot d-${size}`;
+    let classes = `Dot d-${this.props.dotSize}`;
+    // perhaps i don't need to center the dot this way.
     let CSSstyle = {
+      right: this.props.dotSize/2,
+      bottom: this.props.dotSize/2,
       backgroundImage: `url(images/${dotStyle}.png)`,
-      }
+    }
     return (
-      <div  
+      <div 
       className="dot-handle" 
-      style={{left: position.x-size/2, 
-        top: position.y-size/2 }}>
-        <div className ={classes} style={CSSstyle}></div>
+      style={{
+        left: `${this.props.position.x}vw`,
+        top: `${this.props.position.y}vh`,
+        }}>
+        <div  
+        className ={classes} 
+        style={CSSstyle}></div>
       </div>
     )
   }
