@@ -9,12 +9,16 @@ export default class Container extends Component {
   constructor () {
     super();
     this.styleRange = [
-      "magenta-blotch", "cyan-blotch", "yellow-blotch"
+      "magenta-blotch", 
+      "cyan-blotch", 
+      "yellow-blotch", 
+      "black-blotch", 
+      "white-blotch"
     ];
     this.sizeRange = [
       50, 130, 340, 890
     ]
-    this.numLayers = 2;
+    this.numLayers = 5;
 
     this.layerData = [
       {idx: 0,numDots: 5, algo: "ortho"},

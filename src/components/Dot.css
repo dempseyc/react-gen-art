@@ -1,7 +1,3 @@
-/* div {
-  position: relative;
-} */
-
 .Dot {
   position: relative;
   border-radius: 50%;
@@ -10,6 +6,7 @@
 
 .dot-handle {
   position: relative;
+  display: block;
 }
 
 .d-50 {

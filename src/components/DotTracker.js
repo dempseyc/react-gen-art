@@ -1,6 +1,4 @@
-import Dot from "./Dot";
-
-//  takes a number and an array of objs
+//  constructor takes a number and an array of objs
 
 export default class DotTracker {
     constructor(numLayers, layerData) {
