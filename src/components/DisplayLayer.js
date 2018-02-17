@@ -3,18 +3,15 @@ import Dot from './Dot'
 
 export default class DisplayLayer extends Component {
 
-  ranPos(min,max) {
-    return Math.floor(Math.random()*max)+min;
+  constructor(props) {
+    super(props);
+    console.log(this.props.data, "data in dl");
   }
 
   makeDots() {
-    let numDots = 5;
-    let DotContainer = [];
-    for(let i = 0; i<numDots; i++) {
-      DotContainer.push({x: this.ranPos(0,100), y: this.ranPos(0,100)});
-    }
+
     return(
-      DotContainer.map((d,i)=>{
+      this.props.data.data.map((d,i)=>{
         return (
           <Dot 
               key={i}

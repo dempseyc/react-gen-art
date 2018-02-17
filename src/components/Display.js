@@ -10,9 +10,9 @@ constructor(props) {
 	for (let num=1; num<=this.props.numLayers; num++) {
 		this.displayLayers.push(num);
 	}
-
 	this.makeDisplayLayers.bind(this);
-
+	
+	console.log(this.props.dotPosData, "dotposdata in d");
 }
 
 makeDisplayLayers() {
@@ -20,6 +20,7 @@ makeDisplayLayers() {
 		return (
 		<DisplayLayer 
 			key={num-1} 
+			data= {this.props.dotPosData[num-1]}
 			layerNum={num}
 			layers={this.props.layers}
 			numlayers={this.props.numLayers}
@@ -30,7 +31,6 @@ makeDisplayLayers() {
 )}
 
 render() {
-	console.log(this.props, "in d");
 	return (
 	<div className="Display">
 		{ this.makeDisplayLayers() }

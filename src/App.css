@@ -20,6 +20,7 @@
 }
 
 .Display {
+  position: relative;
   flex: 3;
   height: 100vh;
   border: 4px solid #777;
@@ -27,7 +28,7 @@
 }
 
 .DisplayLayer {
-  position: relative;
+  position: absolute;
   width: 100%;
   mix-blend-mode: multiply;
 

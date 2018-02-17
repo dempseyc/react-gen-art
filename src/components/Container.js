@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
+import DotTracker from './DotTracker'
 import Display from './Display'
 import Editor from './Editor'
+import Dot from './Dot';
 
 export default class Container extends Component {
-
-  // what we will need later is layers in the uiData and displayData
 
   constructor () {
     super();
@@ -15,27 +15,38 @@ export default class Container extends Component {
       50, 130, 340, 890
     ]
     this.numLayers = 2;
+
+    this.layerData = [
+      {idx: 0,numDots: 5, algo: "ortho"},
+      {idx: 1,numDots: 5, algo: "ortho"}
+    ];
+
+    this.dotTracker = new DotTracker(this.numLayers, this.layerData);
+
     let layerArr = [];
-    // push layer template instead
+
     for (let i=1; i<=this.numLayers; i++) {
       layerArr.push({
         dotStyle: "yellow-blotch",
         dotSize: 130
       });
+
     }
+
+    this.dotPosData = this.dotTracker.reportDotPosData();
 
     this.state = {
       uiData: {
         layers: layerArr
       },
       displayData: { 
-        layerArray: Array(this.numLayers) }
+        layerArray: this.dotPosData
+      },
     };
 
-    this.updateDisplay = this.updateDisplay.bind(this);
-
     this.displayUpdate = this.state.uiData.layers;
-    console.log(this.displayUpdate, "d u");
+
+    this.updateDisplay = this.updateDisplay.bind(this);
 
     this.updateDotStyle = this.updateDotStyle.bind(this);
     // this.updateAlgo = this.updateAlgo.bind(this);
@@ -82,12 +93,17 @@ export default class Container extends Component {
     this.forceUpdate();
   }
 
+  // componentWillMount() {
+  //   this.dotPosData = this.dotTracker.reportDotPosData();
+  // }
+
   render() {
-    console.log(this.displayUpdate, "in c");
+    // console.log(this.displayUpdate, "in c");
     return (
       <div className="Container">
         <Display
             numLayers= {this.numLayers}
+            dotPosData= {this.dotPosData}
             layers= {this.displayUpdate}
          >
         </Display>
