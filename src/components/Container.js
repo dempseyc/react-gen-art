@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import DotTracker from './DotTracker'
 import Display from './Display'
 import Editor from './Editor'
-import Dot from './Dot';
 
 export default class Container extends Component {
 
