@@ -2,11 +2,10 @@
 
 export default class DotTracker {
     constructor(numLayers, layerData) {
-        console.log("has dotTracker", numLayers, layerData);
+
         this.layerData = layerData;
         this.numLayers = numLayers;
-        ///// ^^^^^^^^^^^^^^^^^^^^ replaced by contructor args
-        // this.ranPos = this.ranPos.bind(this);
+
         this.makeDotPosData = this.makeDotPosData.bind(this);
         this.makeDotLayerData = this.makeDotLayerData.bind(this);
         this.DotPosData = this.makeDotPosData();

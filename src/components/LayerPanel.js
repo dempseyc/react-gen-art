@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import DotStyleChooser from './DotStyleChooser'
 import DotSizeChooser from './DotSizeChooser'
+import DotQtyChooser from './DotQtyChooser'
 import './LayerPanel.css'
 
 export default class LayerPanel extends Component {
@@ -39,6 +40,12 @@ constructor(props) {
             sizeRange= {this.props.data.sizeRange}
         >
         </DotSizeChooser>
+        <DotQtyChooser
+            layerNum = {this.props.layerNum}
+            data= {this.props.data}
+            sizeRange= {this.props.data.sizeRange}
+        >
+        </DotQtyChooser>
       </div>
     )
   }
