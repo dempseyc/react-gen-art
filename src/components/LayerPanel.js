@@ -37,13 +37,11 @@ constructor(props) {
         <DotSizeChooser
             layerNum = {this.props.layerNum}
             data= {this.props.data}
-            sizeRange= {this.props.data.sizeRange}
         >
         </DotSizeChooser>
         <DotQtyChooser
             layerNum = {this.props.layerNum}
             data= {this.props.data}
-            sizeRange= {this.props.data.sizeRange}
         >
         </DotQtyChooser>
       </div>

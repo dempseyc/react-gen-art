@@ -19,7 +19,7 @@ export default class Container extends Component {
     ]
     this.numLayers = 5;
 
-    this.dotTracker = new DotTracker(this.numLayers, this.layerData);
+    this.dotTracker = new DotTracker(this.numLayers);
 
     let layerArr = [];
 
@@ -32,7 +32,7 @@ export default class Container extends Component {
 
     }
 
-    this.dotPosData = this.dotTracker.reportDotPosData();
+    this.dotPosData = this.dotTracker.makeDotPosData();
 
     this.state = {
       uiData: {
@@ -104,7 +104,7 @@ export default class Container extends Component {
         return dU;
       }
     });
-
+    this.dotPosData = this.dotTracker.updateDotPosData(layer,dotQty);
     this.setState({
       uiData: { layers: newArr }
     }, () => { this.updateDisplay(newArr) })
