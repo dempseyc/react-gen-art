@@ -30,6 +30,7 @@
 .DisplayLayer {
   position: absolute;
   width: 100%;
+  height: 100%;
   mix-blend-mode: screen;
 
 }

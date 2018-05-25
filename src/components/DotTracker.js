@@ -4,10 +4,9 @@ export default class DotTracker {
     constructor(numLayers) {
 
         this.numLayers = numLayers;
-
+        this.initNumDotsPerLayer = 3;
         this.makeDotPosData = this.makeDotPosData.bind(this);
-        this.makeDotLayerData = this.makeDotLayerData.bind(this);
-        this.updateDotLayerData = this.updateDotLayerData.bind(this);
+        this.setPosDataForLayer = this.setPosDataForLayer.bind(this);
         this.dotPosData = [];
         this.makeDotPosData();
     }
@@ -15,42 +14,31 @@ export default class DotTracker {
     ranPos(min,max) {
         return Math.floor(Math.random()*max)+min;
     }
-    
-    makeDotLayerData() {
-        let numDots = 5;
-        let layerDotData = [];
-        for(let i = 0; i<numDots; i++) {
-          layerDotData.push({
-              x: this.ranPos(0,100), 
-              y: this.ranPos(0,100)
-            });
-        }
-        return layerDotData;
-    }
 
-    updateDotLayerData(numDots) {
-        let layerDotData = [];
+    setPosDataForLayer(numDots) {
+        if (!numDots) { var numDots = this.initNumDotsPerLayer; }
+        let layerPosData = [];
         for(let i = 0; i<numDots; i++) {
-          layerDotData.push({
-              x: this.ranPos(0,100), 
-              y: this.ranPos(0,100)
+          layerPosData.push({
+              x: this.ranPos(0,200)/2, 
+              y: this.ranPos(0,200/2)
             });
         }
-        return layerDotData;
+        return layerPosData;
     }
 
     makeDotPosData() {
         for(let i = 0; i<this.numLayers; i++) {
             this.dotPosData.push({
                 idx: i,
-                data: this.makeDotLayerData()
+                data: this.setPosDataForLayer()
             });
         }
         return this.dotPosData;
     }
 
     updateDotPosData(layerNum, numDots) {
-        this.dotPosData[layerNum-1].data = this.updateDotLayerData(numDots);
+        this.dotPosData[layerNum-1].data = this.setPosDataForLayer(numDots);
         return this.dotPosData;
     }
 
