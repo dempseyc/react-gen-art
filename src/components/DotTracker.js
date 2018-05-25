@@ -8,7 +8,8 @@ export default class DotTracker {
         this.makeDotPosData = this.makeDotPosData.bind(this);
         this.makeDotLayerData = this.makeDotLayerData.bind(this);
         this.updateDotLayerData = this.updateDotLayerData.bind(this);
-        this.DotPosData = this.makeDotPosData();
+        this.dotPosData = [];
+        this.makeDotPosData();
     }
     
     ranPos(min,max) {
@@ -39,21 +40,18 @@ export default class DotTracker {
     }
 
     makeDotPosData() {
-        let numLayers = this.numLayers;
-        let posData = [];
-        for(let i = 0; i<numLayers; i++) {
-            posData.push({
+        for(let i = 0; i<this.numLayers; i++) {
+            this.dotPosData.push({
                 idx: i,
                 data: this.makeDotLayerData()
             });
         }
-        return posData;
+        return this.dotPosData;
     }
 
     updateDotPosData(layerNum, numDots) {
-        let posData = this.DotPosData;
-        posData[layerNum-1].data = this.updateDotLayerData(numDots);
-        return posData;
+        this.dotPosData[layerNum-1].data = this.updateDotLayerData(numDots);
+        return this.dotPosData;
     }
 
 }
