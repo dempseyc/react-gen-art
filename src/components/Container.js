@@ -43,8 +43,6 @@ export default class Container extends Component {
       },
     };
 
-    this.displayUpdate = this.state.uiData.layers;
-
     this.updateDisplay = this.updateDisplay.bind(this);
 
     this.updateDotStyle = this.updateDotStyle.bind(this);
@@ -55,64 +53,40 @@ export default class Container extends Component {
   }
 
   updateDotStyle(dotStyle,layer) {
-    let newArr = this.state.uiData.layers.map((d,i)=>{
-      if (i+1 !== layer) {
-        return d;
-      } else {
-        let dU = { 
-          dotStyle: dotStyle,
-          dotSize: this.state.uiData.layers[i].dotSize,
-          dotQty: this.state.uiData.layers[i].dotQty
-        }
-        return dU;
-      }
-    });
+    let newArr = this.state.uiData.layers;
+    newArr[layer-1].dotStyle = dotStyle;
+
     this.setState({
       uiData: { layers: newArr }
-    }, () => { this.updateDisplay(newArr) })
+    }, () => { this.updateDisplay() })
   }
   
   updateDotSize(dotSize,layer) {
     console.log (this.state.uiData.layers);
-    let newArr = this.state.uiData.layers.map((d,i)=>{
-      if (i+1 !== layer) {
-        return d;
-      } else {
-        let dU = { 
-          dotSize: dotSize,
-          dotStyle: this.state.uiData.layers[i].dotStyle,
-          dotQty: this.state.uiData.layers[i].dotQty
-        }
-        return dU;
-      }
-    });
+    let newArr = this.state.uiData.layers;
+    newArr[layer-1].dotSize = dotSize;
+
     this.setState({
       uiData: { layers: newArr }
-    }, () => { this.updateDisplay(newArr) })
+    }, () => { this.updateDisplay() })
   }
   
-  updateDotQty(dotQty,layer) {
-    let newArr = this.state.uiData.layers.map((d,i)=>{
-      if (i+1 !== layer) {
-        return d;
-      } else {
-        let dU = { 
-          dotSize: this.state.uiData.layers[i].dotSize,
-          dotStyle: this.state.uiData.layers[i].dotStyle,
-          dotQty: dotQty
-        }
-        return dU;
-      }
-    });
-    this.dotPosData = this.dotTracker.updateDotPosData(layer,dotQty);
+  updateDotQty(dotQty,layerNum) {
+    let newArr = this.state.uiData.layers;
+    newArr[layerNum-1].dotQty = dotQty;
+    this.dotPosData = this.dotTracker.updateDotPosData(layerNum,dotQty);
+
     this.setState({
-      uiData: { layers: newArr }
-    }, () => { this.updateDisplay(newArr) })
+      uiData: { layers: newArr },
+      displayData: { layerArray: this.dotPosData }
+    }, () => { 
+      this.updateDisplay();
+      }
+    )
   }
 
   // this forceUpdate does what is needed from container
-  updateDisplay(layers) {
-    this.displayUpdate = layers;
+  updateDisplay() {
     this.forceUpdate();
   }
 
@@ -123,13 +97,13 @@ export default class Container extends Component {
         <Display
             numLayers= {this.numLayers}
             dotPosData= {this.dotPosData}
-            layers= {this.displayUpdate}
+            layers= {this.state.uiData.layers}
          >
         </Display>
         <Editor data={{ 
           styleRange: this.styleRange,
           numLayers: this.numLayers,
-          layers: this.displayUpdate,
+          layers: this.state.uiData.layers,
           updateDotStyle: this.updateDotStyle,
           updateDotSize: this.updateDotSize,
           updateDotQty: this.updateDotQty

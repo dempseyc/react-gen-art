@@ -51,19 +51,8 @@ export default class DotTracker {
     }
 
     updateDotPosData(layerNum, numDots) {
-        let numLayers = this.numLayers;
         let posData = this.DotPosData;
-        for(let i = 0; i<numLayers; i++) {
-            if(i+1 !== layerNum) {
-                return posData;
-            } else
-            {
-                posData[i] = {
-                    idx: i,
-                    data: this.updateDotLayerData(numDots)
-                }
-            }
-        }
+        posData[layerNum-1].data = this.updateDotLayerData(numDots);
         return posData;
     }
 
