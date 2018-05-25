@@ -50,6 +50,8 @@ export default class Container extends Component {
     this.updateDotSize = this.updateDotSize.bind(this);
 
     this.updateDotQty = this.updateDotQty.bind(this);
+
+    this.updateAlgo = this.updateAlgo.bind(this);
   }
 
   updateDotStyle(dotStyle,layer) {
@@ -85,6 +87,20 @@ export default class Container extends Component {
     )
   }
 
+  updateAlgo(algo,layerNum) {
+    let newArr = this.state.uiData.layers;
+    newArr[layerNum-1].algo = algo;
+    this.dotPosData = this.dotTracker.animDots(layerNum,algo);
+
+    this.setState({
+      uiData: { layers: newArr },
+      displayData: { layerArray: this.dotPosData }
+    }, () => { 
+      this.updateDisplay();
+      }
+    )
+  }
+
   // this forceUpdate does what is needed from container
   updateDisplay() {
     this.forceUpdate();
@@ -106,7 +122,8 @@ export default class Container extends Component {
           layers: this.state.uiData.layers,
           updateDotStyle: this.updateDotStyle,
           updateDotSize: this.updateDotSize,
-          updateDotQty: this.updateDotQty
+          updateDotQty: this.updateDotQty,
+          updateAlgo: this.updateAlgo
           }} />
       </div>
     )

@@ -65,7 +65,7 @@ export default class Editor extends Component {
         this.setState({
             activeLayer: numLayer
         }, ()=>{
-            console.log(this.state.activeLayer);
+            console.log(`layer ${this.state.activeLayer}`);
         })
     }
 

@@ -7,6 +7,7 @@ export default class DotTracker {
         this.initNumDotsPerLayer = 3;
         this.makeDotPosData = this.makeDotPosData.bind(this);
         this.setPosDataForLayer = this.setPosDataForLayer.bind(this);
+        this.animDots = this.animDots.bind(this);
         this.dotPosData = [];
         this.makeDotPosData();
     }
@@ -16,7 +17,7 @@ export default class DotTracker {
     }
 
     setPosDataForLayer(numDots) {
-        if (!numDots) { var numDots = this.initNumDotsPerLayer; }
+        if (!numDots) { numDots = this.initNumDotsPerLayer; }
         let layerPosData = [];
         for(let i = 0; i<numDots; i++) {
           layerPosData.push({
@@ -39,6 +40,10 @@ export default class DotTracker {
 
     updateDotPosData(layerNum, numDots) {
         this.dotPosData[layerNum-1].data = this.setPosDataForLayer(numDots);
+        return this.dotPosData;
+    }
+
+    animDots(layerNum, algo) {
         return this.dotPosData;
     }
 
