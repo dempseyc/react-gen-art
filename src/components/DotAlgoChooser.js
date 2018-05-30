@@ -23,12 +23,14 @@ export default class DotAlgoChooser extends Component {
   render() {
     return (
 
-      <form>
+      <form className="DotAlgoChooser">
+        <label>Algorithm</label>
         <select value={this.state.value} onChange={this.handleChange} >
           <option value='midpoint'>Midpoint</option>
-          <option value='equidistant'>Equidistant</option>
+          <option value='orthogonal'>Orthogonal</option>
           <option default value='random'>Random</option>
         </select>
+        <button type="submit">Execute</button>
       </form>
     )
   }

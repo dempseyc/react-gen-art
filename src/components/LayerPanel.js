@@ -45,6 +45,7 @@ constructor(props) {
             data= {this.props.data}
         >
         </DotQtyChooser>
+        <br></br>
         <DotAlgoChooser
             layerNum = {this.props.layerNum}
             data= {this.props.data}

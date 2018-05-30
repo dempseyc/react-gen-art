@@ -1,4 +1,5 @@
 //  constructor takes a number and an array of objs
+// import AlgoRunner from '../AlgoRunner';
 
 export default class DotTracker {
     constructor(numLayers) {
@@ -7,7 +8,6 @@ export default class DotTracker {
         this.initNumDotsPerLayer = 3;
         this.makeDotPosData = this.makeDotPosData.bind(this);
         this.setPosDataForLayer = this.setPosDataForLayer.bind(this);
-        this.animDots = this.animDots.bind(this);
         this.dotPosData = [];
         this.makeDotPosData();
     }
@@ -43,7 +43,8 @@ export default class DotTracker {
         return this.dotPosData;
     }
 
-    animDots(layerNum, algo) {
+    runAlgo(layerNum, dotPosData, algo) {
+        // this.dotPosData[layerNum-1] = AlgoRunner(this.dotPosData[layerNum-1], algo);
         return this.dotPosData;
     }
 

@@ -24,6 +24,7 @@ export default class DotSizeChooser extends Component {
     return (
 
       <form>
+        <label>Dot Size</label>
         <select value={this.state.value} onChange={this.handleChange} >
           <option value='50'>50px</option>
           <option value='130'>130px</option>

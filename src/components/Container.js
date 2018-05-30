@@ -90,7 +90,8 @@ export default class Container extends Component {
   updateAlgo(algo,layerNum) {
     let newArr = this.state.uiData.layers;
     newArr[layerNum-1].algo = algo;
-    this.dotPosData = this.dotTracker.animDots(layerNum,algo);
+    // let n = this.dotTracker.runAlgo(1);
+    // console.log(n);
 
     this.setState({
       uiData: { layers: newArr },

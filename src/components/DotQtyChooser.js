@@ -21,7 +21,8 @@ export default class DotQtyChooser extends Component {
 
   render() {
     return (
-      <form>
+      <form className="DotQtyChooser">
+        <label>Dot Qty.</label>
         <select value={this.state.value} onChange={this.handleChange} >
           <option value='3'>3</option>
           <option value='6'>6</option>
