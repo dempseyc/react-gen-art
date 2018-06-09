@@ -16,8 +16,8 @@ export default class Dot extends Component {
       <div 
       className="dot-handle" 
       style={{
-        left: `${this.props.position.x}%`,
-        top: `${this.props.position.y}%`,
+        left: `${this.props.position.xPos}%`,
+        top: `${this.props.position.yPos}%`,
         }}>
         <div  
         className ={classes} 

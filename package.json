@@ -1,6 +1,6 @@
 {
   "name": "react-gen-art",
-  "homepage" : "http://www.thelifestyle.info/craigdempsey/react_gen_art",
+  "homepage": "http://www.thelifestyle.info/craigdempsey/react_gen_art",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +8,9 @@
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
-    "react-scripts": "1.1.0"
+    "node-sass": "^4.9.0",
+    "react-scripts": "1.1.0",
+    "sass-loader": "^7.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

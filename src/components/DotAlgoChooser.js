@@ -30,7 +30,6 @@ export default class DotAlgoChooser extends Component {
           <option value='orthogonal'>Orthogonal</option>
           <option default value='random'>Random</option>
         </select>
-        <button type="submit">Execute</button>
       </form>
     )
   }

@@ -1,5 +1,5 @@
 //  constructor takes a number and an array of objs
-// import AlgoRunner from '../AlgoRunner';
+import AlgoRunner from '../AlgoRunner';
 
 export default class DotTracker {
     constructor(numLayers) {
@@ -21,8 +21,9 @@ export default class DotTracker {
         let layerPosData = [];
         for(let i = 0; i<numDots; i++) {
           layerPosData.push({
-              x: this.ranPos(0,200)/2, 
-              y: this.ranPos(0,200/2)
+              idx: i,
+              xPos: this.ranPos(0,200)/2, 
+              yPos: this.ranPos(0,200/2)
             });
         }
         return layerPosData;
@@ -32,6 +33,7 @@ export default class DotTracker {
         for(let i = 0; i<this.numLayers; i++) {
             this.dotPosData.push({
                 idx: i,
+                algo: "random",
                 data: this.setPosDataForLayer()
             });
         }
@@ -43,8 +45,8 @@ export default class DotTracker {
         return this.dotPosData;
     }
 
-    runAlgo(layerNum, dotPosData, algo) {
-        // this.dotPosData[layerNum-1] = AlgoRunner(this.dotPosData[layerNum-1], algo);
+    runAlgo(layerNum, algo) {
+        this.dotPosData[layerNum-1].data = AlgoRunner(this.dotPosData[layerNum-1].data, algo);
         return this.dotPosData;
     }
 

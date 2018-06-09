@@ -5,11 +5,10 @@ export default class DisplayLayer extends Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props.data, "data in dl");
   }
 
   makeDots() {
-
+    console.log(this.props.data, "data in dl");
     return(
       this.props.data.data.map((d,i)=>{
         return (

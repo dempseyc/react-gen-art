@@ -12,7 +12,7 @@ constructor(props) {
 	}
 	this.makeDisplayLayers.bind(this);
 	
-	console.log(this.props.dotPosData, "dotposdata in d");
+	// console.log(this.props.dotPosData, "dotposdata in d");
 }
 
 makeDisplayLayers() {

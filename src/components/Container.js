@@ -32,7 +32,7 @@ export default class Container extends Component {
 
     }
 
-    this.dotPosData = this.dotTracker.makeDotPosData();
+    this.dotPosData = this.dotTracker.dotPosData;
 
     this.state = {
       uiData: {
@@ -52,7 +52,7 @@ export default class Container extends Component {
     this.updateDotQty = this.updateDotQty.bind(this);
 
     this.updateAlgo = this.updateAlgo.bind(this);
-  }
+  }  // end constructor
 
   updateDotStyle(dotStyle,layer) {
     let newArr = this.state.uiData.layers;
@@ -90,8 +90,7 @@ export default class Container extends Component {
   updateAlgo(algo,layerNum) {
     let newArr = this.state.uiData.layers;
     newArr[layerNum-1].algo = algo;
-    // let n = this.dotTracker.runAlgo(1);
-    // console.log(n);
+    this.dotPosData = this.dotTracker.runAlgo(layerNum,algo);
 
     this.setState({
       uiData: { layers: newArr },
