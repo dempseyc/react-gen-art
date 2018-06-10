@@ -1,30 +1,10 @@
 .Dot {
   position: relative;
-  border-radius: 50%;
-  background-size: cover;
+  border-radius: 100%;
+  background-color: #666666;
 }
 
 .dot-handle {
   position: absolute;
   display: block;
 }
-
-/* .d-50 {
-  width: 50px;
-  height: 50px;
-}
-
-.d-130 {
-  width: 130px;
-  height: 130px;
-}
-
-.d-340 {
-  width: 340px;
-  height: 340px;
-}
-
-.d-890 {
-  width: 890px;
-  height: 890px;
-} */

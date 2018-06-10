@@ -27,7 +27,7 @@ export default class Container extends Component {
       layerArr.push({
         dotStyle: "yellow-blotch",
         dotColor: "#666666",
-        dotSize: 130,
+        dotSize: 5,
         dotQty: 6
       });
 
@@ -45,14 +45,12 @@ export default class Container extends Component {
     };
 
     this.updateDisplay = this.updateDisplay.bind(this);
-
     this.updateDotStyle = this.updateDotStyle.bind(this);
-
+    this.updateDotColor = this.updateDotColor.bind(this);
     this.updateDotSize = this.updateDotSize.bind(this);
-
     this.updateDotQty = this.updateDotQty.bind(this);
-
     this.updateAlgo = this.updateAlgo.bind(this);
+    
   }  // end constructor
 
   updateDotStyle(dotStyle,layer) {
@@ -64,6 +62,14 @@ export default class Container extends Component {
     }, () => { this.updateDisplay() })
   }
   
+  updateDotColor(dotColor,layer) {
+    let newArr = this.state.uiData.layers;
+    newArr[layer-1].dotColor = dotColor;
+    this.setState({
+      uiData: { layers: newArr }
+    }, () => { this.updateDisplay() })
+  }
+
   updateDotSize(dotSize,layer) {
     console.log (this.state.uiData.layers);
     let newArr = this.state.uiData.layers;
@@ -122,6 +128,7 @@ export default class Container extends Component {
           numLayers: this.numLayers,
           layers: this.state.uiData.layers,
           updateDotStyle: this.updateDotStyle,
+          updateDotColor: this.updateDotColor,
           updateDotSize: this.updateDotSize,
           updateDotQty: this.updateDotQty,
           updateAlgo: this.updateAlgo

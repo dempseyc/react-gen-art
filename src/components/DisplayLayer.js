@@ -14,6 +14,7 @@ export default class DisplayLayer extends Component {
         return (
           <Dot 
               key={i}
+              dotColor={this.props.layers[this.props.layerNum-1].dotColor}
               dotStyle={this.props.layers[this.props.layerNum-1].dotStyle} 
               dotSize={this.props.layers[this.props.layerNum-1].dotSize} 
               position={d}

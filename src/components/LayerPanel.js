@@ -52,7 +52,10 @@ constructor(props) {
             data= {this.props.data}
         >
         </DotAlgoChooser>
-        <DotColorChooser />
+        <DotColorChooser 
+            layerNum = {this.props.layerNum}
+            data= {this.props.data}
+        />
       </div>
     )
   }

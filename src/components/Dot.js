@@ -4,16 +4,23 @@ import './Dot.css';
 export default class Dot extends Component {
 
   render() {
+
+    let dotColor = `${this.props.dotColor}`;
     let dotStyle = this.props.dotStyle;
+    let radius = `${this.props.dotSize / 4}px`;
+
 
     let CSSstyle = {
-      right: this.props.dotSize/2,
-      bottom: this.props.dotSize/2,
-      width: `${this.props.dotSize}px`,
-      height: `${this.props.dotSize}px`,
-      backgroundImage: `url(images/${dotStyle}.png)`,
+      // right: this.props.dotSize/2,
+      // bottom: this.props.dotSize/2,
+      borderRadius:  `${this.props.dotSize}px`,
+      width: `2px`,
+      height: `2px`,
+      // backgroundImage: `url(images/${dotStyle}.png)`,
+      boxShadow: `0px 0px ${radius} ${radius} ${dotColor}`,
+      background: `${dotColor}`
     }
-    
+
     return (
       <div 
       className="dot-handle" 
