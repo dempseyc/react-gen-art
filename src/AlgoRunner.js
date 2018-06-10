@@ -4,7 +4,7 @@ export default function AlgoRunner (dotPosData, algo) {
 
     // utils
     function randomPos () {
-        return Math.floor(Math.random() * 100 * 2 );
+        return (Math.floor(Math.random() * 200)) / 2;
     }
     function squareNum (num) {
         return Math.pow(num, 2);
@@ -95,7 +95,7 @@ export default function AlgoRunner (dotPosData, algo) {
 
       function targetRandom () {
         dot.trx = randomPos();
-        dot.tmy = randomPos();
+        dot.try = randomPos();
         dot.tx = dot.trx;
         dot.ty = dot.try;
       }

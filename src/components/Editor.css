@@ -1,3 +1,9 @@
-.Editor {
-    background-color: #AAA;
+.color-picker {
+    padding: 2%;
 }
+
+.bgc-heading {
+    margin-bottom: 5%;
+    color: white;
+}
+

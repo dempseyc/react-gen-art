@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import BackgroundChooser from './BackgroundChooser'
 import LayerButton from './LayerButton'
 import LayerPanel from './LayerPanel'
 import './Editor.css'
@@ -80,6 +81,7 @@ export default class Editor extends Component {
     render() {
         return (
         <div className="Editor">
+            <BackgroundChooser />
 
             <div className="LayerButtons">
                 { this.makeButtons() }      

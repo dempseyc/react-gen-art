@@ -7,20 +7,24 @@
     background-color: #000;
 }
 
+button {
+    appearance: none;
+}
+
 button.active-am {
     background-color: #AAA;
-    border-top: 2px solid #000;
-    border-left: 2px solid #000;
-    border-right: 2px solid #000;
+    border-top: 2px solid #777;
+    border-left: 2px solid #777;
+    border-right: 2px solid #777;
     border-bottom: 2px solid #AAA;
 }
 
 button.active-am-not {
     background-color: #AAA;
-    border-top: 2px solid #000;
-    border-left: 2px solid #000;
-    border-right: 2px solid #000;
-    border-bottom: 2px solid #000;
+    border-top: 2px solid #777;
+    border-left: 2px solid #777;
+    border-right: 2px solid #777;
+    border-bottom: 2px solid #777;
 }
 
    /* for panels */

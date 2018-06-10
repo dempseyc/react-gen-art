@@ -23,7 +23,7 @@ export default class DotTracker {
           layerPosData.push({
               idx: i,
               xPos: this.ranPos(0,200)/2, 
-              yPos: this.ranPos(0,200/2)
+              yPos: this.ranPos(0,200)/2
             });
         }
         return layerPosData;
