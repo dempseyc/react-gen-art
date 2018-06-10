@@ -22,13 +22,10 @@ export default class DotQtyChooser extends Component {
   render() {
     return (
       <form className="DotQtyChooser">
-        <label>Dot Qty.</label>
-        <select value={this.state.value} onChange={this.handleChange} >
-          <option value='3'>3</option>
-          <option value='6'>6</option>
-          <option default value='12'>12</option>
-          <option value='24'>24</option>
-        </select>
+        <label>Dot Qty: </label>
+        <input value={this.state.value} onChange={this.handleChange} >
+        </input>
+        <label> * 2</label>
       </form>
     )
   }

@@ -24,10 +24,9 @@ export default class DotSizeChooser extends Component {
   render() {
     return (
 
-      <form>
-        <label>Dot Size</label>
+       <div className="DotSizeChooser">
           <DotSizeSlider ref={this.layer+"-dot-size"} min="5" max="850" val={this.state.value} update={(e) => this.handleChange(e)} >{this.state.value}</DotSizeSlider>
-      </form>
+      </div>
     )
   }
 }
@@ -35,8 +34,8 @@ export default class DotSizeChooser extends Component {
 class DotSizeSlider extends React.Component {
   render() {
     return (
-      <div className="dot-size-slider">
-        <label className="mini-output">{this.props.col}: {this.props.children}</label>
+      <div className="channel">
+        <label className="mini-output">Dot Size: {this.props.children}</label>
           <input
             className="mini-input"
             ref={this.layer+"-dot-size-input"}

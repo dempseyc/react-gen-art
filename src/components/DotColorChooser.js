@@ -35,8 +35,8 @@ export default class ColorPicker extends Component {
     body.style.backgroundColor =  bgc; 
     
     return (
-      <div className="color-picker">
-        <div className="bgc-heading" style={myStyle}>BG COLOR</div>        
+      <div className="DotColorChooser">
+        <div className="dc-heading" style={myStyle}>DOT COLOR</div>        
         <Slider ref="red" min="0" max="255" col="red" val={this.state.red} update={() => this.update()} >{this.state.red}</Slider>         
         <Slider ref="green" min="0" max="255" col="green" val={this.state.green} update={() => this.update()} >{this.state.green}</Slider> 
         <Slider ref="blue" min="0" max="255" col="blue" val={this.state.blue} update={() => this.update()} >{this.state.blue}</Slider>

@@ -3,6 +3,7 @@ import DotStyleChooser from './DotStyleChooser'
 import DotSizeChooser from './DotSizeChooser'
 import DotQtyChooser from './DotQtyChooser'
 import DotAlgoChooser from './DotAlgoChooser'
+import DotColorChooser from './DotColorChooser'
 import './LayerPanel.css'
 
 export default class LayerPanel extends Component {
@@ -51,6 +52,7 @@ constructor(props) {
             data= {this.props.data}
         >
         </DotAlgoChooser>
+        <DotColorChooser />
       </div>
     )
   }

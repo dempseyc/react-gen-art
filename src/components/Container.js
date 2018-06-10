@@ -26,6 +26,7 @@ export default class Container extends Component {
     for (let i=1; i<=this.numLayers; i++) {
       layerArr.push({
         dotStyle: "yellow-blotch",
+        dotColor: "#666666",
         dotSize: 130,
         dotQty: 6
       });
