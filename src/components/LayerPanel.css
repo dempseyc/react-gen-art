@@ -43,7 +43,7 @@ button.active-am-not {
     padding: 2%;
     background-color: #AAA;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 110px 50px 50px 50px 200px 1fr;
+    grid-template-rows: 1fr 1fr 50px 50px 50px 1fr;
     padding-top: 10px;
 }
 
@@ -51,23 +51,24 @@ button.active-am-not {
     grid-column: 1/2;
     grid-row: 1/2;
 }
-.DotSizeChooser {
-    grid-column: 1/5;
-    grid-row: 2/3;
-}
-.DotQtyChooser {
-    grid-column: 1/5;
-    grid-row: 3/4;
-}
-.DotAlgoChooser {
-    grid-column: 1/5;
-    grid-row: 4/5;
-    opacity: 1;
-}
 
 .DotColorChooser {
     grid-column: 1/5;
+    grid-row: 2/3;
+}
+
+.DotSizeChooser {
+    grid-column: 1/5;
+    grid-row: 3/4;
+}
+.DotQtyChooser {
+    grid-column: 1/5;
+    grid-row: 4/5;
+}
+.DotAlgoChooser {
+    grid-column: 1/5;
     grid-row: 5/6;
+    opacity: 1;
 }
 
 .style-button {

@@ -5,6 +5,7 @@ export default class DisplayLayer extends Component {
 
   constructor(props) {
     super(props);
+    this.layer = this.props.layerNum;
   }
 
   makeDots() {
@@ -14,9 +15,9 @@ export default class DisplayLayer extends Component {
         return (
           <Dot 
               key={i}
-              dotColor={this.props.layers[this.props.layerNum-1].dotColor}
-              dotStyle={this.props.layers[this.props.layerNum-1].dotStyle} 
-              dotSize={this.props.layers[this.props.layerNum-1].dotSize} 
+              dotColor={this.props.layers[this.layer-1].dotColor}
+              dotStyle={this.props.layers[this.layer-1].dotStyle} 
+              dotSize={this.props.layers[this.layer-1].dotSize} 
               position={d}
             ></Dot>
         )
