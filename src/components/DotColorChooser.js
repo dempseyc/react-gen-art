@@ -19,21 +19,13 @@ export default class DotColorChooser extends Component {
             blue: 230,
             alpha: 1
         };
-
-        this.changeDotStyle = this.changeDotStyle.bind(this);
+        
         this.changeDotColor = this.changeDotColor.bind(this);
         this.updateRed = this.updateRed.bind(this);
         this.updateGreen = this.updateGreen.bind(this);
         this.updateBlue = this.updateBlue.bind(this);
         this.updateAlpha = this.updateAlpha.bind(this);
 
-    }
-
-    changeDotStyle(style,layer) {
-        // from update props.data up to container
-        this.setState({
-            dotStyle: style
-        }, this.props.data.updateDotStyle(style,layer) )
     }
 
     changeDotColor(color,layer) {

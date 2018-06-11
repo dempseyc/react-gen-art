@@ -26,7 +26,7 @@ export default class Container extends Component {
     for (let i=1; i<=this.numLayers; i++) {
       layerArr.push({
         dotStyle: "yellow-blotch",
-        dotColor: "#666666",
+        dotColor: "rgba(151, 151, 151, 1)",
         dotSize: 5,
         dotQty: 6
       });
@@ -65,6 +65,7 @@ export default class Container extends Component {
   updateDotColor(dotColor,layer) {
     let newArr = this.state.uiData.layers;
     newArr[layer-1].dotColor = dotColor;
+
     this.setState({
       uiData: { layers: newArr }
     }, () => { this.updateDisplay() })

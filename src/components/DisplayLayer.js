@@ -15,11 +15,13 @@ export default class DisplayLayer extends Component {
         return (
           <Dot 
               key={i}
-              dotColor={this.props.layers[this.layer-1].dotColor}
+              layer={this.layer}
               dotStyle={this.props.layers[this.layer-1].dotStyle} 
+              dotColor={this.props.layers[this.layer-1].dotColor}
               dotSize={this.props.layers[this.layer-1].dotSize} 
               position={d}
-            ></Dot>
+          >
+          </Dot>
         )
       })
     );

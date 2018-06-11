@@ -13,7 +13,10 @@ export default class Dot extends Component {
     let negRadius = `${0-this.props.dotSize / 2}`;
     let dotSize = `${this.props.dotSize}`;
     let viewBox = `0 0 ${dotSize} ${dotSize}`;
-    let left = this.props.position.yPos
+    let left = this.props.position.yPos;
+    let layer = this.props.layer;
+    let layerGradient = `${layer}-gradient`;
+    let lgURL = `url(#${layerGradient})`;
 
     return (
       <div
@@ -37,13 +40,13 @@ export default class Dot extends Component {
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
-              <radialGradient id="exampleGradient">
+              <radialGradient id={layerGradient}>
                 <stop offset="0%" stop-color={innerColor}/>
                 <stop offset="100%" stop-color={outerColor} stop-opacity={opacity}/>
               </radialGradient>
             </defs>
 
-            <circle fill="url(#exampleGradient)" cx={radius} cy={radius} r={radius}/>
+            <circle fill={lgURL} cx={radius} cy={radius} r={radius}/>
           </svg>
         </div>
       </div>
