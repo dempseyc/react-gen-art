@@ -14,12 +14,12 @@ export default class DotColorChooser extends Component {
         this.state = {
             expanded: false,
             dotColor: this.props.data.layers[this.layer-1].dotColor,
-            red: 165,
-            green: 57,
-            blue: 230,
+            red: 0,
+            green: 0,
+            blue: 0,
             alpha: 1
         };
-        
+
         this.changeDotColor = this.changeDotColor.bind(this);
         this.updateRed = this.updateRed.bind(this);
         this.updateGreen = this.updateGreen.bind(this);

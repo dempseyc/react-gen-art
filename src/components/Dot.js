@@ -12,7 +12,7 @@ export default class Dot extends Component {
     let radius = `${this.props.dotSize / 2}`;
     let negRadius = `${0-this.props.dotSize / 2}`;
     let dotSize = `${this.props.dotSize}`;
-    let viewBox = `0 0 ${dotSize} ${dotSize}`;
+    let viewBox = `0 0 ${dotSize} ${dotSize}`; // bug here
     let left = this.props.position.yPos;
     let layer = this.props.layer;
     let layerGradient = `${layer}-gradient`;

@@ -1,6 +1,6 @@
 export default function AlgoRunner (dotPosData, algo) {
     let moveAmount = 0.2;
-    let numMoves = 40;
+    let numMoves = 50;
 
     // utils
     function randomPos () {
@@ -239,7 +239,7 @@ export default function AlgoRunner (dotPosData, algo) {
           let cosTheta = Math.cos(theta);
           let adjacent = cosTheta * v2.mag;
 
-          // this will give us p3, closest point to dot on v1
+          // this will give us p2, closest point to dot on v1
           v1a.mag = adjacent;
           v1a.x = v1n.x * v1a.mag;
           v1a.y = v1n.y * v1a.mag;

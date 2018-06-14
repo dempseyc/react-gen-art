@@ -14,9 +14,7 @@ export default class Container extends Component {
       "black-blotch", 
       "white-blotch"
     ];
-    this.sizeRange = [
-      50, 130, 340, 890
-    ]
+
     this.numLayers = 5;
 
     this.dotTracker = new DotTracker(this.numLayers);
@@ -26,8 +24,8 @@ export default class Container extends Component {
     for (let i=1; i<=this.numLayers; i++) {
       layerArr.push({
         dotStyle: "yellow-blotch",
-        dotColor: "rgba(151, 151, 151, 1)",
-        dotSize: 5,
+        dotColor: "rgba(0, 0, 0, 1)",
+        dotSize: 10,
         dotQty: 6
       });
 
