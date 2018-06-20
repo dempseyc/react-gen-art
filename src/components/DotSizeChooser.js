@@ -12,7 +12,6 @@ export default class DotSizeChooser extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -25,7 +24,14 @@ export default class DotSizeChooser extends Component {
     return (
 
        <div className="DotSizeChooser">
-          <DotSizeSlider ref={this.layer+"-dot-size"} min="5" max="850" val={this.state.value} update={(e) => this.handleChange(e)} >{this.state.value}</DotSizeSlider>
+          <DotSizeSlider 
+            ref={this.layer+"-dot-size"} 
+            min="5" 
+            max="850" 
+            step="5" 
+            val={this.state.value} 
+            update={(e) => this.handleChange(e)} >{this.state.value}
+          </DotSizeSlider>
       </div>
     )
   }
@@ -43,7 +49,7 @@ class DotSizeSlider extends React.Component {
             type="range" 
             min={this.props.min} 
             max={this.props.max} 
-            step={5} 
+            step={this.props.step} 
             onChange={this.props.update} 
           /> 
      </div>

@@ -16,7 +16,8 @@ export default class Display extends Component {
 	makeDisplayLayers() {
 		return this.displayLayers.map( (num) => {
 			return (
-			<DisplayLayer 
+			<DisplayLayer
+				key={`dl-${num}`}
 				data= {this.props.dotPosData[num-1]}
 				layerNum={num}
 				layers={this.props.layers}

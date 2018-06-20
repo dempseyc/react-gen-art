@@ -10,10 +10,13 @@ export default class DotColorChooser extends Component {
         super(props);
 
         this.layer = this.props.layerNum;
-
+        this.type = this.props.type;
+        this.className = (this.type==="inner-color" ? "DotColorChooser1" : "DotColorChooser2" );
+        this.dotColor = (this.type==="inner-color" ? this.props.data.layers[this.layer-1].dotColor1 : this.props.data.layers[this.layer-1].dotColor2 );
+        this.updateColor = (this.type==="inner-color" ? this.props.data.updateDotColor1 : this.props.data.updateDotColor2 );
         this.state = {
             expanded: false,
-            dotColor: this.props.data.layers[this.layer-1].dotColor,
+            dotColor: this.dotColor,
             red: 0,
             green: 0,
             blue: 0,
@@ -31,7 +34,10 @@ export default class DotColorChooser extends Component {
     changeDotColor(color,layer) {
         this.setState({
             dotColor: color
-        }, this.props.data.updateDotColor(color,layer) )
+        }, this.updateColor(color,layer) )
+    }
+    changeOuterOpacity(val,layer) {
+        this.props.data.updateOuterOpacity(val,layer);
     }
 
     updateRed(e) {
@@ -75,6 +81,7 @@ export default class DotColorChooser extends Component {
             alpha: val
         }, () => {
             this.changeDotColor(dc,this.layer);
+            this.changeOuterOpacity(val,this.layer);
         })
     }
 
@@ -86,7 +93,7 @@ export default class DotColorChooser extends Component {
         let alpha = `alpha-${layer}`;
     
         return (
-        <div className="DotColorChooser">
+        <div className={this.className}>
             <div className="dc-heading" style={{backgroundColor: `${this.state.dotColor}`}}>DOT COLOR</div>        
             <MiniSlider ref={red} min="0" max="255" channel="red" val={this.state.red} update={this.updateRed} >{this.state.red}</MiniSlider>         
             <MiniSlider ref={green} min="0" max="255" channel="green" val={this.state.green} update={this.updateGreen} >{this.state.green}</MiniSlider> 

@@ -29,6 +29,8 @@ export default class DotAlgoChooser extends Component {
           <option value='midpoint'>Midpoint</option>
           <option value='orthogonal'>Orthogonal</option>
           <option default value='random'>Random</option>
+          <option default value='average'>Average</option>
+          <option default value='center'>Center</option>
         </select>
       </form>
     )

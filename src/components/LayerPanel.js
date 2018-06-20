@@ -52,7 +52,15 @@ constructor(props) {
             data= {this.props.data}
         >
         </DotAlgoChooser>
-        <DotColorChooser 
+        <DotColorChooser
+            key = {1}
+            type = "inner-color"
+            layerNum = {this.props.layerNum}
+            data= {this.props.data}
+        />
+        <DotColorChooser
+            key = {2}
+            type = "outer-color"
             layerNum = {this.props.layerNum}
             data= {this.props.data}
         />

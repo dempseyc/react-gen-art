@@ -1,10 +1,10 @@
 export default function AlgoRunner (dotPosData, algo) {
-    let moveAmount = 0.2;
-    let numMoves = 50;
+    let moveAmount = 0.5;
+    let numMoves = 3;
 
     // utils
-    function randomPos () {
-        return (Math.floor(Math.random() * 200)) / 2;
+    function ranPos(min,max) {
+        return Math.floor(Math.random()*max)+min;
     }
     function squareNum (num) {
         return Math.pow(num, 2);
@@ -12,8 +12,9 @@ export default function AlgoRunner (dotPosData, algo) {
 
     // execute
     function main () {
-        dotPosData.forEach((dot) => {
+        dotPosData.forEach((dot,i) => {
           dot = findNs(dot);
+          // console.log(dot,i);
         });
         console.log('found Ns');
         makeMoves();
@@ -77,7 +78,6 @@ export default function AlgoRunner (dotPosData, algo) {
                 }
             }
         });
-
         return currDot;
 
     } // end findNs
@@ -87,15 +87,15 @@ export default function AlgoRunner (dotPosData, algo) {
 
       // target between NN and NNN /////////////////////////////////////////
       function findMidpoint () {
-        console.log(dot);
+        // console.log(dot);
         dot.tmx = (dot.NNN.xPos + dot.NN.xPos) * 0.5 ;
         dot.tmy = (dot.NNN.yPos + dot.NN.yPos) * 0.5 ;
         return { x: dot.tmx, y: dot.tmy};
       }
 
       function targetRandom () {
-        dot.trx = randomPos();
-        dot.try = randomPos();
+        dot.trx = ranPos(0,200)/2;
+        dot.try = ranPos(0,200)/2;
         dot.tx = dot.trx;
         dot.ty = dot.try;
       }

@@ -5,9 +5,9 @@ export default class Dot extends Component {
 
   render() {
 
-    let innerColor = `${this.props.dotColor}`;
-    let outerColor = `${this.props.dotColor}`;
-    let opacity = `0`;
+    let innerColor = `${this.props.dotColor1}`;
+    let outerColor = `${this.props.dotColor2}`;
+    let outerOpacity = `${this.props.outerOpacity}`;
     let dotStyle = this.props.dotStyle;
     let radius = `${this.props.dotSize / 2}`;
     let negRadius = `${0-this.props.dotSize / 2}`;
@@ -41,8 +41,8 @@ export default class Dot extends Component {
           >
             <defs>
               <radialGradient id={layerGradient}>
-                <stop offset="0%" stop-color={innerColor}/>
-                <stop offset="100%" stop-color={outerColor} stop-opacity={opacity}/>
+                <stop offset="0%" stopColor={innerColor}/>
+                <stop offset="100%" stopColor={outerColor} stopOpacity={outerOpacity}/>
               </radialGradient>
             </defs>
 

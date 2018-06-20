@@ -9,7 +9,7 @@ export default class DisplayLayer extends Component {
   }
 
   makeDots() {
-    console.log(this.props.data, "data in dl");
+    // console.log(this.props.data, "data in dl");
     return(
       this.props.data.data.map((d,i)=>{
         return (
@@ -17,7 +17,9 @@ export default class DisplayLayer extends Component {
               key={i}
               layer={this.layer}
               dotStyle={this.props.layers[this.layer-1].dotStyle} 
-              dotColor={this.props.layers[this.layer-1].dotColor}
+              dotColor1={this.props.layers[this.layer-1].dotColor1}
+              dotColor2={this.props.layers[this.layer-1].dotColor2}
+              outerOpacity={this.props.layers[this.layer-1].outerOpacity}
               dotSize={this.props.layers[this.layer-1].dotSize} 
               position={d}
           >

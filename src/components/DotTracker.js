@@ -5,43 +5,64 @@ export default class DotTracker {
     constructor(numLayers) {
 
         this.numLayers = numLayers;
-        this.initNumDotsPerLayer = 3;
-        this.makeDotPosData = this.makeDotPosData.bind(this);
-        this.setPosDataForLayer = this.setPosDataForLayer.bind(this);
+        this.mode = "twin";
+        this.dotQtyInput = 5;  // multiplied by 2
+        this.makeLayerData = this.makeLayerData.bind(this);
+        this.setDotData = this.setDotData.bind(this);
         this.dotPosData = [];
-        this.makeDotPosData();
+        this.makeLayerData();
     }
     
     ranPos(min,max) {
         return Math.floor(Math.random()*max)+min;
     }
 
-    setPosDataForLayer(numDots) {
-        if (!numDots) { numDots = this.initNumDotsPerLayer; }
+    setDotData(dotQtyInput, mode) {
+        if (!dotQtyInput) { dotQtyInput = this.dotQtyInput; }
+        let dotQty = dotQtyInput * 2;
+        if (!mode) { mode = this.mode; }
         let layerPosData = [];
-        for(let i = 0; i<numDots; i++) {
-          layerPosData.push({
+
+        let addDot = function (i, style, x, y) {
+            layerPosData.push({
               idx: i,
-              xPos: this.ranPos(0,200)/2, 
-              yPos: this.ranPos(0,200)/2
+              dot_style: style,
+              xPos: x, 
+              yPos: y
             });
         }
+
+        for(let i = 0; i<dotQty; i++) {
+            let yPos = this.ranPos(0,200)/2;
+            let xPos = this.ranPos(0,200)/2;
+            let xPosT = 100 - xPos; 
+            if (mode==="twin") {
+                addDot(i, "blotch", xPos, yPos);
+                addDot(i+1, "blotch", xPosT, yPos);
+                i++;
+            } else {
+                addDot(i, "blotch", xPos, yPos);
+            }
+        }
+
         return layerPosData;
+    
     }
 
-    makeDotPosData() {
+    makeLayerData() {
         for(let i = 0; i<this.numLayers; i++) {
             this.dotPosData.push({
-                idx: i,
+                layer_idx: i,
                 algo: "random",
-                data: this.setPosDataForLayer()
+                data: this.setDotData()
             });
         }
         return this.dotPosData;
+
     }
 
-    updateDotPosData(layerNum, numDots) {
-        this.dotPosData[layerNum-1].data = this.setPosDataForLayer(numDots);
+    updateDotData(layerNum, dotQtyInput) {
+        this.dotPosData[layerNum-1].data = this.setDotData(dotQtyInput);
         return this.dotPosData;
     }
 
