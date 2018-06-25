@@ -7,7 +7,7 @@ export default class MiniSlider extends Component {
         super(props);
         this.channel = this.props.channel;
         this.state = {
-            value: 0
+            value: this.props.val
         }
         this.handleChange = this.handleChange.bind(this);
     }

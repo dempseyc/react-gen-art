@@ -30,28 +30,23 @@ constructor(props) {
       <div  
       className={ classnames }
       >
-        <DotStyleChooser
-            layerNum = {this.props.layerNum}
-            data= {this.props.data}
-            styleRange= {this.props.data.styleRange}
-        >
-        </DotStyleChooser>
-        <DotSizeChooser
-            layerNum = {this.props.layerNum}
-            data= {this.props.data}
-        >
-        </DotSizeChooser>
         <DotQtyChooser
             layerNum = {this.props.layerNum}
             data= {this.props.data}
         >
         </DotQtyChooser>
-        <br></br>
-        <DotAlgoChooser
+        {/* <DotStyleChooser
+            layerNum = {this.props.layerNum}
+            data= {this.props.data}
+            styleRange= {this.props.data.styleRange}
+        >
+        </DotStyleChooser> */}
+        <DotSizeChooser
             layerNum = {this.props.layerNum}
             data= {this.props.data}
         >
-        </DotAlgoChooser>
+        </DotSizeChooser>
+        <br></br>
         <DotColorChooser
             key = {1}
             type = "inner-color"
@@ -64,6 +59,11 @@ constructor(props) {
             layerNum = {this.props.layerNum}
             data= {this.props.data}
         />
+        <DotAlgoChooser
+            layerNum = {this.props.layerNum}
+            data= {this.props.data}
+        >
+        </DotAlgoChooser>
       </div>
     )
   }

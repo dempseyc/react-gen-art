@@ -10,9 +10,9 @@ export default class ColorPicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      red: 255,
-      green: 255,
-      blue:255,
+      red: 126,
+      green: 126,
+      blue:126,
       alpha: 1
     };
   }

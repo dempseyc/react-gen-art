@@ -54,6 +54,8 @@ export default class Container extends Component {
     this.updateQualitiesRandom = this.updateQualitiesRandom.bind(this);
 
     this.updateAlgo = this.updateAlgo.bind(this);
+
+    this.updateQualitiesRandom();
     
   }  // end constructor
 
@@ -70,13 +72,21 @@ export default class Container extends Component {
     return str;
   }
 
-  randomSize() {
-    
+  randomOpacity() {
+    return Math.random();
   }
 
-  updateDotStyle (dotStyle,layer) {
+  randomSize() {
+    return this.ranMM(1,170) * 5;
+  }
+
+  randomQty() {
+    return this.ranMM(1,30);
+  }
+
+  updateDotStyle (dotStyle,layerNum) {
     let newArr = this.state.uiData.layers;
-    newArr[layer-1].dotStyle = dotStyle;
+    newArr[layerNum-1].dotStyle = dotStyle;
 
     this.setState({
       uiData: { layers: newArr }
@@ -84,9 +94,9 @@ export default class Container extends Component {
 
   }
   
-  updateDotColor1 (dotColor1,layer) {
+  updateDotColor1 (dotColor1,layerNum) {
     let newArr = this.state.uiData.layers;
-    newArr[layer-1].dotColor1 = dotColor1;
+    newArr[layerNum-1].dotColor1 = dotColor1;
 
     this.setState({
       uiData: { layers: newArr }
@@ -94,9 +104,9 @@ export default class Container extends Component {
 
   }  
 
-  updateDotColor2 (dotColor2,layer) {
+  updateDotColor2 (dotColor2,layerNum) {
     let newArr = this.state.uiData.layers;
-    newArr[layer-1].dotColor2 = dotColor2;
+    newArr[layerNum-1].dotColor2 = dotColor2;
 
     this.setState({
       uiData: { layers: newArr }
@@ -104,19 +114,19 @@ export default class Container extends Component {
 
   }
 
-  updateOuterOpacity (val, layer) {
+  updateOuterOpacity (val, layerNum) {
     let newArr = this.state.uiData.layers;
-    newArr[layer-1].outerOpacity = val;
+    newArr[layerNum-1].outerOpacity = val;
 
     this.setState({
       uiData: { layers: newArr }
     }, () => { this.updateDisplay(); })
   }
 
-  updateDotSize (dotSize,layer) {
+  updateDotSize (dotSize,layerNum) {
     console.log (this.state.uiData.layers);
     let newArr = this.state.uiData.layers;
-    newArr[layer-1].dotSize = dotSize;
+    newArr[layerNum-1].dotSize = dotSize;
 
     this.setState({
       uiData: { layers: newArr }
@@ -154,7 +164,15 @@ export default class Container extends Component {
       let color1 = this.randomColor();
       let color2 = this.randomColor();
       let dotSize = this.randomSize();
+      let qty = this.randomQty();
+      let opacity = this.randomOpacity();
+      this.updateDotQty(qty,layerNum);
+      this.updateDotSize(dotSize, layerNum);
+      this.updateDotColor1(color1, layerNum);
+      this.updateDotColor2(color2, layerNum);
+      this.updateOuterOpacity(opacity, layerNum);
     }
+    // this.updateDisplay();
   }
 
   // this forceUpdate does what is needed from container
