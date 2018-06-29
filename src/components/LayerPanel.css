@@ -5,6 +5,7 @@
     font-size: 1.5em;
     text-align: center;
     background-color: #000;
+    box-shadow: 0 -1px 0px 0px #ddd;
 }
 
 button {
@@ -13,7 +14,7 @@ button {
 
 button.active-am {
     background-color: #AAA;
-    border-top: 2px solid #777;
+    border-top: 2px solid #ddd;
     border-left: 2px solid #777;
     border-right: 2px solid #777;
     border-bottom: 2px solid #AAA;
@@ -21,10 +22,11 @@ button.active-am {
 
 button.active-am-not {
     background-color: #AAA;
-    border-top: 2px solid #777;
+    border-top: 2px solid #AAA;
     border-left: 2px solid #777;
     border-right: 2px solid #777;
     border-bottom: 2px solid #777;
+    box-shadow: 0 -1px 0px 0px #ddd;
 }
 
    /* for panels */
@@ -46,10 +48,13 @@ button.active-am-not {
     padding: 2%;
     background-color: #AAA;
     padding-top: 10px;
+    box-shadow: 0 -1px 1px 0px white;
 }
 
-.DotStyleChooser {
-
+.BlendModeChooser {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 5%;
 }
 
 .DotColorChooser1 {
@@ -68,7 +73,7 @@ button.active-am-not {
 
 }
 .DotAlgoChooser {
-
+    padding-top: 5%;
 }
 
 .style-button {
@@ -88,5 +93,5 @@ button.active-am-not {
 }
 
 .style-button.expanded {
-    display: block;
+    display: inline-block;
 }

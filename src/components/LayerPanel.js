@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import DotStyleChooser from './DotStyleChooser'
+import BlendModeChooser from './BlendModeChooser'
 import DotSizeChooser from './DotSizeChooser'
 import DotQtyChooser from './DotQtyChooser'
 import DotAlgoChooser from './DotAlgoChooser'
@@ -35,12 +35,12 @@ constructor(props) {
             data= {this.props.data}
         >
         </DotQtyChooser>
-        {/* <DotStyleChooser
+        <BlendModeChooser
             layerNum = {this.props.layerNum}
             data= {this.props.data}
-            styleRange= {this.props.data.styleRange}
+            blendModes= {this.props.data.blendModes}
         >
-        </DotStyleChooser> */}
+        </BlendModeChooser>
         <DotSizeChooser
             layerNum = {this.props.layerNum}
             data= {this.props.data}

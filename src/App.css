@@ -5,7 +5,7 @@
 .App-header {
   background-color: #222;
   outline: 4px solid grey;
-  height: 10vh;
+  height: 5vh;
   width: 100vw;
   color: white;
 }
@@ -30,7 +30,7 @@
 
 .DisplayLayer {
   height: 100%;
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
   
 }
 

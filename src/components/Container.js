@@ -7,11 +7,10 @@ export default class Container extends Component {
 
   constructor () {
     super();
-    this.styleRange = [
-        "empty",
-        "blotch", 
-        "solid",
-        "hoop"
+    this.blendModes = [
+        "screen",
+        "darken", 
+        "opaque"
     ];
 
     this.numLayers = 5;
@@ -22,7 +21,7 @@ export default class Container extends Component {
 
     for (let i=1; i<=this.numLayers; i++) {
       layerArr.push({
-        dotStyle: "blotch",
+        blendMode: "screen",
         dotColor1: "rgba(0, 0, 0, 1)",
         dotColor2: "rgba(0, 0, 0, 0)",
         outerOpacity: "0",
@@ -44,7 +43,7 @@ export default class Container extends Component {
     };
 
     this.updateDisplay = this.updateDisplay.bind(this);
-    this.updateDotStyle = this.updateDotStyle.bind(this);
+    this.updateBlendMode = this.updateBlendMode.bind(this);
     this.updateDotColor1 = this.updateDotColor1.bind(this);
     this.updateDotColor2 = this.updateDotColor2.bind(this);
     this.updateOuterOpacity = this.updateOuterOpacity.bind(this);
@@ -77,16 +76,16 @@ export default class Container extends Component {
   }
 
   randomSize() {
-    return this.ranMM(1,170) * 5;
+    return Math.pow(this.ranMM(1,10),2) * 3;
   }
 
   randomQty() {
     return this.ranMM(1,30);
   }
 
-  updateDotStyle (dotStyle,layerNum) {
+  updateBlendMode (blendMode,layerNum) {
     let newArr = this.state.uiData.layers;
-    newArr[layerNum-1].dotStyle = dotStyle;
+    newArr[layerNum-1].blendMode = blendMode;
 
     this.setState({
       uiData: { layers: newArr }
@@ -191,10 +190,10 @@ export default class Container extends Component {
          >
         </Display>
         <Editor data={{ 
-          styleRange: this.styleRange,
+          blendModes: this.blendModes,
           numLayers: this.numLayers,
           layers: this.state.uiData.layers,
-          updateDotStyle: this.updateDotStyle,
+          updateBlendMode: this.updateBlendMode,
           updateDotColor1: this.updateDotColor1,
           updateDotColor2: this.updateDotColor2,
           updateOuterOpacity: this.updateOuterOpacity,

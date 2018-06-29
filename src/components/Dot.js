@@ -12,8 +12,7 @@ export default class Dot extends Component {
     let radius = `${this.props.dotSize / 2}`;
     let negRadius = `${0-this.props.dotSize / 2}`;
     let dotSize = `${this.props.dotSize}`;
-    let viewBox = `0 0 ${dotSize} ${dotSize}`; // bug here
-    let left = this.props.position.yPos;
+    // let viewBox = `0 0 ${dotSize} ${dotSize}`;
     let layer = this.props.layer;
     let layerGradient = `${layer}-gradient`;
     let lgURL = `url(#${layerGradient})`;
@@ -36,7 +35,7 @@ export default class Dot extends Component {
             y={negRadius}
             width={dotSize}
             height={dotSize} 
-            viewBox={viewBox}
+            // viewBox={viewBox}
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
