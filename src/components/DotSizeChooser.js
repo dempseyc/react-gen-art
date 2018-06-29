@@ -8,7 +8,7 @@ export default class DotSizeChooser extends Component {
     super(props);
     this.layer = this.props.layerNum;
     this.state = {
-      value: "15"
+      value: this.props.dotSize
     };
 
     this.handleChange = this.handleChange.bind(this);

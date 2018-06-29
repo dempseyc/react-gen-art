@@ -7,7 +7,7 @@ export default class DotQtyChooser extends Component {
     super(props);
     this.layer = this.props.layerNum;
     this.state = {
-      value: 5
+      value: this.props.dotQty
     };
 
     this.handleChange = this.handleChange.bind(this);

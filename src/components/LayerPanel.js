@@ -31,36 +31,40 @@ constructor(props) {
       className={ classnames }
       >
         <DotQtyChooser
-            layerNum = {this.props.layerNum}
+            layerNum= {this.props.layerNum}
+            dotQty= {this.props.data.layers[this.props.layerNum-1].dotQty}
             data= {this.props.data}
         >
         </DotQtyChooser>
         <BlendModeChooser
-            layerNum = {this.props.layerNum}
-            data= {this.props.data}
-            blendModes= {this.props.data.blendModes}
+            layerNum= {this.props.layerNum}
+            data={this.props.data}
+            blendModes={this.props.data.blendModes}
         >
         </BlendModeChooser>
         <DotSizeChooser
-            layerNum = {this.props.layerNum}
+            layerNum= {this.props.layerNum}
+            dotSize= {this.props.data.layers[this.props.layerNum-1].dotSize}
             data= {this.props.data}
         >
         </DotSizeChooser>
         <br></br>
         <DotColorChooser
-            key = {1}
-            type = "inner-color"
-            layerNum = {this.props.layerNum}
+            key= "dcc-1"
+            type= "inner-color"
+            layerNum= {this.props.layerNum}
+            dotColor= {this.props.data.layers[this.props.layerNum-1].dotColor1}
             data= {this.props.data}
         />
         <DotColorChooser
-            key = {2}
-            type = "outer-color"
-            layerNum = {this.props.layerNum}
+            key= "dcc-2"
+            type= "outer-color"
+            layerNum= {this.props.layerNum}
+            dotColor= {this.props.data.layers[this.props.layerNum-1].dotColor2}
             data= {this.props.data}
         />
         <DotAlgoChooser
-            layerNum = {this.props.layerNum}
+            layerNum= {this.props.layerNum}
             data= {this.props.data}
         >
         </DotAlgoChooser>

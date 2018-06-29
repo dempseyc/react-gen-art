@@ -1,6 +1,3 @@
-// based from: improves upon?
-// https://codepen.io/_danko/pen/JKaxKE?editors=0010
-
 import React, { Component } from 'react';
 import MiniSlider from './MiniSlider.js';
 import './MiniSlider.scss';
@@ -11,17 +8,25 @@ export default class DotColorChooser extends Component {
 
         this.layer = this.props.layerNum;
         this.type = this.props.type;
-        this.header  = (this.type=="inner-color" ? "COLOR 1" : "COLOR 2" );
-        this.className = (this.type==="inner-color" ? "DotColorChooser1" : "DotColorChooser2" );
-        this.dotColor = (this.type==="inner-color" ? this.props.data.layers[this.layer-1].dotColor1 : this.props.data.layers[this.layer-1].dotColor2 );
-        this.updateColor = (this.type==="inner-color" ? this.props.data.updateDotColor1 : this.props.data.updateDotColor2 );
+        this.dotColor = this.props.dotColor;
+
+        if (this.type==="inner-color") {
+            this.header = "COLOR 1";
+            this.className = "DotColorChooser1";
+            this.updateColor = this.props.data.updateDotColor1;
+        } else {
+            this.header = "COLOR 2";
+            this.className = "DotColorChooser2";
+            this.updateColor = this.props.data.updateDotColor2;
+        }
+
         this.state = {
             expanded: false,
-            dotColor: this.dotColor,
-            red: 0,
-            green: 0,
-            blue: 0,
-            alpha: 1
+            red: this.props.dotColor.r,
+            green: this.props.dotColor.g,
+            blue: this.props.dotColor.b,
+            alpha: this.props.dotColor.a,
+            dotColor: `rgba(${this.props.dotColor.r},${this.props.dotColor.g},${this.props.dotColor.b},${this.props.dotColor.a})`
         };
 
         this.changeDotColor = this.changeDotColor.bind(this);
@@ -32,10 +37,10 @@ export default class DotColorChooser extends Component {
 
     }
 
-    changeDotColor(color,layer) {
+    changeDotColor(dc,dcObj,layer) {
         this.setState({
-            dotColor: color
-        }, this.updateColor(color,layer) )
+            dotColor: dc
+        }, this.updateColor(dcObj,layer) )
     }
 
     changeOuterOpacity(val,layer) {
@@ -45,44 +50,48 @@ export default class DotColorChooser extends Component {
     updateRed(e) {
         let val = e.target.value;
         let dc = `rgba(${val}, ${this.state.green}, ${this.state.blue}, ${this.state.alpha})`;
+        let dcObj = {r: val, g: this.state.green, b: this.state.blue, a: this.state.alpha};
         this.setState({
             dotColor: dc,
             red: val
         }, () => {
-            this.changeDotColor(dc,this.layer);
+            this.changeDotColor(dc,dcObj,this.layer);
         })
     }
 
     updateGreen(e) {
         let val = e.target.value;
         let dc = `rgba(${this.state.red}, ${val}, ${this.state.blue}, ${this.state.alpha})`;
+        let dcObj = {r: this.state.red, g: val, b: this.state.blue, a: this.state.alpha};
         this.setState({
             dotColor: dc,
             green: val
         }, () => {
-            this.changeDotColor(dc,this.layer);
+            this.changeDotColor(dc,dcObj,this.layer);
         })
     }
 
     updateBlue(e) {
         let val = e.target.value;
         let dc = `rgba(${this.state.red}, ${this.state.green}, ${val}, ${this.state.alpha})`;
+        let dcObj = {r: this.state.red, g: this.state.green, b: val, a: this.state.alpha};
         this.setState({
             dotColor: dc,
             blue: val
         }, () => {
-            this.changeDotColor(dc,this.layer);
+            this.changeDotColor(dc,dcObj,this.layer);
         })
     }
 
     updateAlpha(e) {
         let val = e.target.value;
         let dc = `rgba(${this.state.red}, ${this.state.green}, ${this.state.blue}, ${val})`;
+        let dcObj = {r: this.state.red, g: this.state.green, b: this.state.blue, a: val};
         this.setState({
             dotColor: dc,
             alpha: val
         }, () => {
-            this.changeDotColor(dc,this.layer);
+            this.changeDotColor(dc,dcObj,this.layer);
             this.changeOuterOpacity(val,this.layer);
         })
     }

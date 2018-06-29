@@ -4,9 +4,8 @@ import './Dot.css';
 export default class Dot extends Component {
 
   render() {
-
-    let innerColor = `${this.props.dotColor1}`;
-    let outerColor = `${this.props.dotColor2}`;
+    let innerColor = `rgba(${this.props.dotColor1.r},${this.props.dotColor1.g},${this.props.dotColor1.b},${this.props.dotColor1.a})`;
+    let outerColor = `rgba(${this.props.dotColor2.r},${this.props.dotColor2.g},${this.props.dotColor2.b},${this.props.dotColor2.a})`;
     let outerOpacity = `${this.props.outerOpacity}`;
     let dotStyle = this.props.dotStyle;
     let radius = `${this.props.dotSize / 2}`;

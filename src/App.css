@@ -30,7 +30,7 @@
 
 .DisplayLayer {
   height: 100%;
-  mix-blend-mode: multiply;
+  mix-blend-mode: hard-light;
   
 }
 

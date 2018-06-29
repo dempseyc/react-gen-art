@@ -9,10 +9,10 @@ export default class Editor extends Component {
     constructor(props) {
         super(props);
 
-        this.layers = [];
+        this.layerNums = [];
 
         for (let i=1;i<=this.props.data.numLayers;i++) {
-            this.layers.push(i);
+            this.layerNums.push(i);
         }
 
         this.state= {
@@ -31,7 +31,7 @@ export default class Editor extends Component {
 
     makeButtons() {
 
-        return this.layers.map((num) => {
+        return this.layerNums.map((num) => {
             return(
                 <LayerButton 
                     key={num-1} 
@@ -48,7 +48,7 @@ export default class Editor extends Component {
     }
 
     makeLayerPanels() {
-        return this.layers.map((num) => {
+        return this.layerNums.map((num) => {
             return(
                <LayerPanel 
                     key= {num-1} 

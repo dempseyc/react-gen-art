@@ -66,9 +66,10 @@ export default class Container extends Component {
     let r = this.ranMM(0,255);
     let g = this.ranMM(0,255);
     let b = this.ranMM(0,255);
-    let a = Math.random();
-    let str = `rgba(${r},${g},${b},${a})`;
-    return str;
+    let a = this.ranMM(0,100)/100;
+    // let str = `rgba(${r},${g},${b},${a})`;
+    // return str;
+    return {r: r, g: g, b: b, a: a};
   }
 
   randomOpacity() {
