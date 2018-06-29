@@ -36,12 +36,12 @@ constructor(props) {
             data= {this.props.data}
         >
         </DotQtyChooser>
-        <BlendModeChooser
+        {/* <BlendModeChooser
             layerNum= {this.props.layerNum}
             data={this.props.data}
             blendModes={this.props.data.blendModes}
         >
-        </BlendModeChooser>
+        </BlendModeChooser> */}
         <DotSizeChooser
             layerNum= {this.props.layerNum}
             dotSize= {this.props.data.layers[this.props.layerNum-1].dotSize}
