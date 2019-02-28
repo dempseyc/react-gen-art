@@ -7,12 +7,12 @@
     "@mapbox/react-colorpickr": "^8.1.2",
     "coloreact": "^0.2.4",
     "react": "^16.2.0",
-    "react-color": "^2.14.1",
+    "react-color": "^2.17.0",
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
-    "node-sass": "^4.9.0",
-    "react-scripts": "1.1.0",
+    "node-sass": "^4.11.0",
+    "react-scripts": "^2.1.5",
     "sass-loader": "^7.0.3"
   },
   "scripts": {
@@ -24,5 +24,11 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

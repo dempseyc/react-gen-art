@@ -28,7 +28,7 @@ export default class DotAlgoChooser extends Component {
         <select value={this.state.value} onChange={this.handleChange} >
           <option value='midpoint'>Midpoint</option>
           <option value='orthogonal'>Orthogonal</option>
-          <option default value='random'>Random</option>
+          {/* <option default value='random'>Random</option> */}
           <option default value='average'>Average</option>
           <option default value='center'>Center</option>
         </select>
